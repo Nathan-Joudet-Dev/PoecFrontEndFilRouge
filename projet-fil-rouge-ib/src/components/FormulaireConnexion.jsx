@@ -19,13 +19,14 @@ const FormulaireConnexion = () => {
             <p className='connectezVous'>Connectez-vous pour avoir accès à plus de contenu !</p>
             <form className='formConnexion'>
                 <label className='labelConnexion' htmlFor="email">Email
-                    <span className='labelSpan'>champ requis</span>
+                    <span className='labelSpan'>*</span>
                 </label>
                 <input className='inputConnexion' type="text" onChange={(e) => setEmail(e.target.value)} />
                 <label className='labelConnexion' htmlFor="motDePasse">Mot de passe
-                    <span className='labelSpan labelSpanDeux'>champ requis</span>
+                    <span className='labelSpan'>*</span>
                 </label>
                 <input className='inputConnexion' type="password" onChange={(e) => setPassword(e.target.value)} />
+                <p className='obligatoires'><span className='etoileObligatoire'>*</span> champs obligatoires</p>
                 <button className='boutonSeConnecter' onClick={seConnecterClick}>Se Connecter</button>
             </form>
             <span className='nouveauPrestataire'>Nouveau Prestataire ?</span>
