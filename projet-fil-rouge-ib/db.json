@@ -1,0 +1,30 @@
+{
+  "client": [
+    {
+      "id": 1,
+      "title": "client",
+      "author": "typicode"
+    }
+  ],
+  "prestataire": [
+    {
+      "id": 1,
+      "body": "prestataires",
+      "postId": 1
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "title": "admin",
+      "author": "typicode"
+    }
+  ],
+  "prestations": [
+    {
+      "id": 1,
+      "title": "prestations",
+      "author": "typicode"
+    }
+  ]
+}
