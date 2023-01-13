@@ -2,14 +2,6 @@
   "utilisateurs": [
     {
       "id": 1,
-      "nom": "Mme Maurice",
-      "email": "mmemaurice@email.fr",
-      "motDePasse": "mmemaurice",
-      "role": "prestaire",
-      "panier": []
-    },
-    {
-      "id": 2,
       "nom": "Benjamin",
       "email": "benjamin@email.fr",
       "motDePasse": "benjamin",
@@ -17,7 +9,7 @@
       "panier": []
     },
     {
-      "id": 3,
+      "id": 2,
       "nom": "Alexoin",
       "email": "alexoin@email.fr",
       "motDePasse": "alexoin",
@@ -25,8 +17,16 @@
       "panier": []
     },
     {
+      "id": 3,
+      "nom": "Design et Marketing",
+      "email": "mmemaurice@email.fr",
+      "motDePasse": "mmemaurice",
+      "role": "prestaire",
+      "panier": []
+    },
+    {
       "id": 4,
-      "nom": "John Doe",
+      "nom": "Security",
       "email": "johndoe@email.fr",
       "motDePasse": "johndoe",
       "role": "prestaire",
@@ -34,9 +34,9 @@
     },
     {
       "id": 5,
-      "nom": "Rachelle Rossignol",
-      "email": "rachellerossignol@email.fr",
-      "motDePasse": "rachelrossignol",
+      "nom": "Electricité Duval",
+      "email": "rachelleduval@email.fr",
+      "motDePasse": "rachelduval",
       "role": "prestaire",
       "panier": []
     }
