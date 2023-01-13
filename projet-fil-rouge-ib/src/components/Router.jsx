@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import HomePage from '../pages/HomePage';
 
 // nathan
 
@@ -39,7 +40,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element='homepage' />
+                <Route path='/' element={<HomePage />} />
 
                 <Route path='/nathan' element='#' />
                 <Route path='/corentin' element='#' />

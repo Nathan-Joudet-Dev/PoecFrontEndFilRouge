@@ -4,7 +4,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { IoShieldCheckmarkSharp } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom';
 
-const HeaderConnection = ({ texte }) => {
+const HeaderConnection = ({ texte, arrow }) => {
 
     const _navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const HeaderConnection = ({ texte }) => {
 
     return (
         <div className='headerConnection'>
-            <AiOutlineArrowLeft className='arrow' onClick={arrowclick} />
+            <AiOutlineArrowLeft className={arrow} onClick={arrowclick} />
             <span className='ultraMotion'>UltraMotionCorp</span>
             <span className='separation'></span>
             <IoShieldCheckmarkSharp className='shield' />
