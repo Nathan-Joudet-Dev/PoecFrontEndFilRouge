@@ -33,6 +33,8 @@ const FormulaireInscriptionDeux = () => {
             nomSociete: nomSociete,
             email: email,
             motDePasse: motDePasse,
+            role: 'prestataire',
+            panier: [],
             logo: logo,
             description: description,
             telephone: telephone,
