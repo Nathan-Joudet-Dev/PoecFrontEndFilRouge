@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/formulaireInscription.css'
-import HeaderConnection from './HeaderConnection';
 
 const FormulaireInscription = () => {
     return (
