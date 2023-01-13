@@ -1,0 +1,62 @@
+.cartePrestation {
+  height: 30vh;
+  width: 90vw;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  background-color: #d5d8e4;
+}
+
+.imagePresta {
+  height: 100%;
+  width: 20%;
+  border-radius: 10px 0 0 10px;
+}
+
+.infosPresta {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  margin-top: 0;
+  height: 85%;
+  width: 80%;
+  position: relative;
+}
+
+.titrePresta {
+  color: #0b71d9;
+  font-weight: bold;
+  font-size: 1.5em;
+  position: absolute;
+  top: -20%;
+  left: 1%;
+}
+
+.prixPresta {
+  position: absolute;
+  top: 5%;
+  left: 1.5%;
+}
+
+.descriptionPresta {
+  position: absolute;
+  top: 28%;
+  left: 1.5%;
+  height: 70%;
+  width: 95%;
+
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  /* align-items: center; */
+  /* flex-wrap: nowrap; */
+  /* flex-direction: column; */
+
+  background-color: red;
+}
