@@ -1,35 +1,33 @@
-.formulaireConnexion {
-  height: 70vh;
-  width: 35vw;
+.formulaireInscription {
+  height: 85vh;
+  width: 95vw;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
-  margin-top: 4%;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.bonjour {
+.devenirPresta {
   font-weight: bold;
-  font-size: 1.3em;
-  margin-top: 3%;
+  font-size: 1.7em;
+  margin-top: 1%;
   margin-bottom: -3%;
 }
 
-.connectezVous {
-  font-size: 1.15em;
-}
-
-.formConnexion {
+.formInscription {
   display: flex;
   align-items: left;
   justify-content: center;
   flex-direction: column;
-  margin-top: 6%;
+  margin-top: 4%;
 }
 
-.labelConnexion {
+.labelInscription {
   font-weight: bold;
   font-size: 1.3em;
-  margin-left: 2%;
+  margin-left: 7.5%;
   text-align: left;
 }
 
@@ -38,21 +36,21 @@
   color: #ff0000;
 }
 
-.inputConnexion {
+.inputInscription {
   border: 0.7px solid black;
   border-radius: 10px;
   background-color: #d9d9d9;
   height: 6.5vh;
-  width: 95%;
-  margin: 2% auto 5% auto;
+  width: 85%;
+  margin: 0.5% auto 1% auto;
   font-size: 1.2em;
 }
 
 .obligatoires {
   text-align: left;
   font-size: 0.9em;
-  margin-left: 2%;
-  margin-top: -4%;
+  margin-left: 7.5%;
+  margin-top: -1%;
 }
 
 .etoileObligatoire {
@@ -60,25 +58,15 @@
   font-weight: bold;
 }
 
-.boutonSeConnecter {
+.boutonSuivant {
   background-color: #0b71d9;
   color: white;
   height: 7vh;
-  width: 96.6%;
+  width: 20%;
   border-radius: 10px;
   border: none;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
-  margin: 5% auto 4% auto;
+  margin: 1% auto 4% auto;
   font-size: 1.2em;
-}
-
-.nouveauPrestataire {
-  margin-right: 3%;
-  font-size: 1.2em;
-}
-
-.lienCreerUnCompte {
-  text-decoration: none;
-  color: #2489ff;
-  font-size: 1.1em;
+  font-weight: bold;
 }
