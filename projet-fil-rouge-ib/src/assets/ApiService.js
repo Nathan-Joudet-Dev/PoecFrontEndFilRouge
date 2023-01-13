@@ -43,10 +43,10 @@ export default class Service {
    * Crée un nouvel utilisateur
    * @returns L'utilisateur qui vient d'être créé
    */
-  async creerUtilisateur() {
-    const response = await axios.post(_url);
-    const nouvelUtilisateur = await response.data;
-    return nouvelUtilisateur;
+  async creerUtilisateur(utilisateur) {
+    return axios
+      .post(_url + "/utilisateurs", utilisateur)
+      .then((res) => res.data);
   }
 
   // ********** Prestations **********
