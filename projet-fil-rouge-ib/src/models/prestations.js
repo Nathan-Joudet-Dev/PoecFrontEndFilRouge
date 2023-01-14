@@ -1,5 +1,7 @@
 export default class Prestations {
+
   // Attributs
+
   id = 0;
   titre = "";
   description = "";
@@ -17,6 +19,7 @@ export default class Prestations {
   prestataire = "";
 
   // Contructeur
+
   constructor(titre, description, tauxHoraires, prestataire) {
     this.titre = titre;
     this.description = description;
