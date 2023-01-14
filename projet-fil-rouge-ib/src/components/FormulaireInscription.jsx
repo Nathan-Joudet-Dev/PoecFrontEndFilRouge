@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/formulaireInscription.css'
-import FormulaireInscriptionDeux from './FormulaireInscriptionDeux';
 
 const FormulaireInscription = () => {
 
@@ -12,15 +11,25 @@ const FormulaireInscription = () => {
     const [motDePasse, setMotDePasse] = useState('')
     const [confirmationMotDePasse, setConfirmationMotDePasse] = useState('')
 
+    /**
+     * Vérifie que tous les champs soient remplis puis vérifie que les deux mots de passe correspondent.
+     *  Stocke les données dans le localStorage pour les récupérer dans la page suivante ou affiche une alerte en cas d'erreur.
+     */
     const suivantClick = () => {
-        // Pour vérifier que les deux mots de passes correspondent
-        if (motDePasse != confirmationMotDePasse) {
-            alert("Erreur, les deux mots de passe doivent correspondre")
-        } else {
-            localStorage.setItem('nomSociete', nomSociete)
-            localStorage.setItem('email', email)
-            localStorage.setItem('motDePasse', motDePasse)
-            _navigate('/inscriptionSuite')
+        // Pour vérifier que tous les champs soit remplis (car ils sont obligatoires)
+        if (nomSociete === '' || email === '' || motDePasse === '' || confirmationMotDePasse === '') {
+            alert("Erreur, merci de renseigner tous les champs")
+        }
+        else {
+            // Pour vérifier que les deux mots de passes correspondent
+            if (motDePasse != confirmationMotDePasse) {
+                alert("Erreur, les deux mots de passe doivent correspondre")
+            } else { // Stocke les données dans le localStorage pour les récupérer dans la page suivante
+                localStorage.setItem('nomSociete', nomSociete)
+                localStorage.setItem('email', email)
+                localStorage.setItem('motDePasse', motDePasse) // Non sécurisé, le mot de passe devrait être Hashé
+                _navigate('/inscriptionSuite')
+            }
         }
     }
 
