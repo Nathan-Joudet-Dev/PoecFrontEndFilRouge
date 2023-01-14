@@ -13,7 +13,7 @@
       "nom": "Alexoin",
       "email": "alexoin@email.fr",
       "motDePasse": "alexoin",
-      "role": "administrateur",
+      "role": "admin",
       "panier": []
     }
   ],
