@@ -15,30 +15,62 @@
       "motDePasse": "alexoin",
       "role": "administrateur",
       "panier": []
-    },
+    }
+  ],
+  "prestataires": [
     {
-      "id": 3,
-      "nom": "Design et Marketing",
+      "id": 1,
+      "nomSociete": "Design et Marketing",
       "email": "mmemaurice@email.fr",
       "motDePasse": "mmemaurice",
       "role": "prestaire",
-      "panier": []
+      "panier": [],
+      "logo": "",
+      "description": "",
+      "telephone": "",
+      "adresse": "",
+      "pays": "",
+      "siret": "",
+      "ville": "",
+      "effectif": "",
+      "domaine": "",
+      "zoneGeo": ""
     },
     {
-      "id": 4,
-      "nom": "Security",
+      "id": 2,
+      "nomSociete": "Security",
       "email": "johndoe@email.fr",
       "motDePasse": "johndoe",
       "role": "prestaire",
-      "panier": []
+      "panier": [],
+      "logo": "",
+      "description": "",
+      "telephone": "",
+      "adresse": "",
+      "pays": "",
+      "siret": "",
+      "ville": "",
+      "effectif": "",
+      "domaine": "",
+      "zoneGeo": ""
     },
     {
-      "id": 5,
-      "nom": "Electricité Duval",
+      "id": 3,
+      "nomSociete": "Electricité Duval",
       "email": "rachelleduval@email.fr",
       "motDePasse": "rachelduval",
       "role": "prestaire",
-      "panier": []
+      "panier": [],
+      "logo": "",
+      "description": "",
+      "telephone": "",
+      "adresse": "",
+      "pays": "",
+      "siret": "",
+      "ville": "",
+      "effectif": "",
+      "domaine": "",
+      "zoneGeo": ""
     }
   ],
   "prestations": [

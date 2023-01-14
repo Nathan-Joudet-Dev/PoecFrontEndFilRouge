@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService'
 import '../styles/formulaireInscriptionDeux.css'
+import Prestataires from '../models/prestataires';
 
 const FormulaireInscriptionDeux = () => {
 
@@ -29,23 +30,7 @@ const FormulaireInscriptionDeux = () => {
     }, [])
 
     async function terminerClick() {
-        const nouvelUtilisateur = {
-            nomSociete: nomSociete,
-            email: email,
-            motDePasse: motDePasse,
-            role: 'prestataire',
-            panier: [],
-            logo: logo,
-            description: description,
-            telephone: telephone,
-            adresse: adresse,
-            pays: pays,
-            siret: siret,
-            ville: ville,
-            effectif: effectif,
-            domaine: domaine,
-            zoneGeo: zoneGeo
-        }
+        const nouvelUtilisateur = new Prestataires(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo)
         _service.creerUtilisateur(nouvelUtilisateur);
     }
 
