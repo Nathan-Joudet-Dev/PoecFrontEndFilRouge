@@ -44,7 +44,7 @@
 .inputLogo {
   height: 30vh;
   border: 2px dashed black;
-  background-image: url("../data/images/telecharger.png");
+  background-image: url("../../public/images/telecharger.png");
   background-position: center;
 }
 
