@@ -15,7 +15,9 @@ const FormulaireInscription = () => {
      * Vérifie que tous les champs soient remplis puis vérifie que les deux mots de passe correspondent.
      *  Stocke les données dans le localStorage pour les récupérer dans la page suivante ou affiche une alerte en cas d'erreur.
      */
-    const suivantClick = () => {
+    const suivant = (e) => {
+        e.preventDefault();
+
         // Pour vérifier que tous les champs soit remplis (car ils sont obligatoires)
         if (nomSociete === '' || email === '' || motDePasse === '' || confirmationMotDePasse === '') {
             alert("Erreur, merci de renseigner tous les champs")
@@ -54,7 +56,7 @@ const FormulaireInscription = () => {
                 </label>
                 <input className='inputInscription' type="password" onChange={(e) => setConfirmationMotDePasse(e.target.value)} />
                 <p className='obligatoires'><span className='etoileObligatoire'>*</span> champs obligatoires</p>
-                <button className='boutonSuivant' onClick={suivantClick}>Suivant</button>
+                <button className='boutonSuivant' onClick={suivant}>Suivant</button>
             </form>
         </div>
     );

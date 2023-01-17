@@ -1,6 +1,6 @@
 .formulaireInscriptionDeux {
-  height: 165vh;
-  width: 95vw;
+  height: 148vh;
+  width: 75vw;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
@@ -61,11 +61,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  height: 45vh;
+  height: 37vh;
 }
 
 .inputFlex {
-  width: 40vw;
+  width: 31vw;
 }
 
 .boutonTerminer {
@@ -73,10 +73,33 @@
   color: white;
   height: 7vh;
   width: 20%;
+  min-width: 130px;
   border-radius: 10px;
   border: none;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
   margin: 1% auto 4% auto;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .formulaireInscriptionDeux {
+    height: 128vh;
+  }
+
+  .labelFlex {
+    height: 34vh;
+  }
+
+  .inputLogo {
+    height: 20vh;
+    background-size: 250%;
+    background-repeat: no-repeat;
+
+  }
+
+  .inputDescription {
+    height: 14vh;
+    font-size: 1.6em;
+  }
 }

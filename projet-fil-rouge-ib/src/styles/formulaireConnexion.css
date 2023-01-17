@@ -1,10 +1,13 @@
 .formulaireConnexion {
-  height: 70vh;
+  height: 68vh;
   width: 35vw;
+  min-height: 500px;
+  min-width: 300px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
   margin-top: 4%;
+
 }
 
 .bonjour {
