@@ -29,7 +29,7 @@ const FormulaireInscriptionDeux = () => {
         setMotDePasse(localStorage.getItem('motDePasse'))
     }, [])
 
-    async function terminerClick() {
+    async function terminer() {
         const nouvelUtilisateur = new Prestataires(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo)
         _service.creerUtilisateur(nouvelUtilisateur);
     }
@@ -61,7 +61,7 @@ const FormulaireInscriptionDeux = () => {
                 <label className='labelInscription' htmlFor="ZoneGeographique">Zone géographique couverte</label>
                 <input className='inputInscription inputBottom' type="text" onChange={(e) => setZoneGeo(e.target.value)} />
             </form>
-            <button className='boutonTerminer' onClick={terminerClick}>Terminer l'inscription</button>
+            <button className='boutonTerminer' onClick={terminer}>Terminer l'inscription</button>
         </div>
     );
 };

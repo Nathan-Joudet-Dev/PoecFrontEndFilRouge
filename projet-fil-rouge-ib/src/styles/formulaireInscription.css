@@ -1,6 +1,7 @@
 .formulaireInscription {
-  height: 85vh;
-  width: 95vw;
+  height: 73vh;
+  width: 75vw;
+  min-width: 300px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
@@ -63,10 +64,17 @@
   color: white;
   height: 7vh;
   width: 20%;
+  min-width: 100px;
   border-radius: 10px;
   border: none;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
   margin: 1% auto 4% auto;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .formulaireInscription {
+    height: 70vh;
+  }
 }
