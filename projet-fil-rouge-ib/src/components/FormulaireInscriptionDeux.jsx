@@ -32,6 +32,9 @@ const FormulaireInscriptionDeux = () => {
     async function terminer() {
         const nouvelUtilisateur = new Prestataires(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo)
         _service.creerUtilisateur(nouvelUtilisateur);
+        localStorage.removeItem('nomSociete')
+        localStorage.removeItem('email')
+        localStorage.removeItem('motDePasse')
     }
 
     return (

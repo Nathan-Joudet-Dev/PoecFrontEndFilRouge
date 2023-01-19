@@ -39,9 +39,9 @@
 
 .inputDescription {
   height: 40%;
-  /* padding: 5% 0; */
   margin-bottom: 2%;
   text-align: top;
+  font-size: 1.8em;
 }
 
 .divTauxHoraire {
@@ -50,39 +50,47 @@
   align-items: center;
   height: 8%;
   width: 14%;
+  min-width: 140px;
   margin-left: 7.5%;
   margin-top: 2%;
 }
 
-.inputTauxHoraire {
-  margin-top: 10%;
+.inputTaux {
+  position: relative;
+  height: 50px;
   width: 50%;
-  /* height: 112%; */
-  height: 49.5px;
-
-  /* padding-top: 2px; */
-  /* padding-bottom: -0.1px; */
-
-  margin-bottom: 9%;
+  min-width: 70px;
   border-radius: 5px 0 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputTauxHoraire {
+  position: absolute;
+  top: -1;
+  left: -1;
+  width: 96%;
+  /* min-width: 70px; */
+  height: 48px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid black;
+  background-color: #d9d9d9;
+  font-size: 1.2em;
 }
 
 .TauxHoraire {
   font-weight: bold;
   font-size: 1.5em;
   width: 50%;
-  /* height: 113%; */
+  min-width: 70px;
   height: 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
   border-radius: 0 5px 5px 0;
   text-align: center;
-
-  padding-top: 1px;
-  padding-bottom: 2px;
 }
 
 .boutonAjouter {
@@ -91,10 +99,12 @@
   color: white;
   height: 7vh;
   width: 20%;
+  min-width: 110px;
   border-radius: 10px;
   border: none;
   box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
   margin: 2% auto 4% auto;
   font-size: 1.5em;
   padding: 0.5% 0;
+  text-align: center;
 }
