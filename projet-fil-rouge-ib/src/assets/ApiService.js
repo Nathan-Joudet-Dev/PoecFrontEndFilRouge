@@ -109,7 +109,7 @@ export default class Service {
    * @returns La liste des prestations
    */
   async recupererPrestations() {
-    const response = await axios.get(_url + "/prestatations");
+    const response = await axios.get(_url + "/prestations");
     const prestatations = await response.data;
     return prestatations;
   }

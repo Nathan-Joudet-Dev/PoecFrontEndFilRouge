@@ -54,9 +54,4 @@
   display: flex;
   justify-content: left;
   text-align: left;
-  /* align-items: center; */
-  /* flex-wrap: nowrap; */
-  /* flex-direction: column; */
-
-  background-color: red;
 }
