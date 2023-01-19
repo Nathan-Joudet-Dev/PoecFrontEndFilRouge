@@ -1,0 +1,100 @@
+.ajoutPrestations {
+  height: 80vh;
+  width: 80vw;
+  margin: 2% auto 0 auto;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
+
+.h1AjoutPrestation {
+  margin-top: 4%;
+}
+
+.labelAjoutPrestation {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-left: 7.4%;
+  margin-bottom: -1.5%;
+  text-align: left;
+}
+
+.inputAjoutPrestation {
+  border: 0.7px solid black;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  height: 6.5vh;
+  width: 85%;
+  margin: 2% auto 5% auto;
+  font-size: 1.2em;
+}
+
+.inputTitre {
+  padding: 1% 0;
+  margin-bottom: 2%;
+}
+
+.inputDescription {
+  height: 40%;
+  /* padding: 5% 0; */
+  margin-bottom: 2%;
+  text-align: top;
+}
+
+.divTauxHoraire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 14%;
+  margin-left: 7.5%;
+  margin-top: 2%;
+}
+
+.inputTauxHoraire {
+  margin-top: 10%;
+  width: 50%;
+  /* height: 112%; */
+  height: 49.5px;
+
+  /* padding-top: 2px; */
+  /* padding-bottom: -0.1px; */
+
+  margin-bottom: 9%;
+  border-radius: 5px 0 0 5px;
+}
+
+.TauxHoraire {
+  font-weight: bold;
+  font-size: 1.5em;
+  width: 50%;
+  /* height: 113%; */
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0 5px 5px 0;
+  text-align: center;
+
+  padding-top: 1px;
+  padding-bottom: 2px;
+}
+
+.boutonAjouter {
+  cursor: pointer;
+  background-color: #0b71d9;
+  color: white;
+  height: 7vh;
+  width: 20%;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+  margin: 2% auto 4% auto;
+  font-size: 1.5em;
+  padding: 0.5% 0;
+}

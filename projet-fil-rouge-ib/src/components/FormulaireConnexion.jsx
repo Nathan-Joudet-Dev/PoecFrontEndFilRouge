@@ -33,7 +33,8 @@ const FormulaireConnexion = () => {
             } else {
                 // Si l'email existe pour un prestataire, vérifie si le mot de passe correspond
                 if (prestataire.motDePasse === motDePasse) {
-                    // Si le mot de passe correspond, redirige vers la page d'accueil prestataire
+                    // Si le mot de passe correspond, envois l'id dans le localStorage et redirige vers la page d'accueil prestataire
+                    localStorage.setItem('id', prestataire.id)
                     _navigate('/prestataire');
                 } else {
                     // Si le mot de passe ne correspond pas, affiche une alerte
@@ -43,12 +44,14 @@ const FormulaireConnexion = () => {
         }
         else { // Si l'email existe pour un utilisateur, vérifie si le mot de passe correspond
             if (utilisateur.motDePasse === motDePasse) {
-                // Si le mot de passe correspond, redirige vers la page d'accueil utilisateur ou admin
+                // Si le mot de passe correspond, envois l'id dans le localStorage et redirige vers la page d'accueil utilisateur ou admin
                 switch (utilisateur.role) {
                     case 'admin':
+                        localStorage.setItem('id', utilisateur.id)
                         _navigate('/admin');
                         break;
                     case 'client':
+                        localStorage.setItem('id', utilisateur.id)
                         _navigate('/client');
                         break;
                     default:

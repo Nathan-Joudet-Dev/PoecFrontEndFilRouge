@@ -6,7 +6,7 @@ import InscriptionSuite from '../pages/InscriptionSuite';
 
 // nathan
 
-
+import AjoutPrestations from './AjoutPrestations';
 
 
 
@@ -47,7 +47,7 @@ const Router = () => {
                 <Route path='/inscriptionSuite' element={<InscriptionSuite />} />
                 <Route path='/nathan' element='#' />
                 <Route path='/corentin' element='#' />
-                <Route path='/benjamin' element='#' />
+                <Route path='/benjamin' element={<AjoutPrestations />} />
 
                 <Route path='/*' element='erreur 404' />
             </Routes>
