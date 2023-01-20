@@ -1,8 +1,8 @@
 import React from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
-const HeaderPrestaEtAdmin = ({ nom, arrow }) => {
+const HeaderPrestaEtAdmin = ({ nom, arrow, boutonAjouter }) => {
 
     const _navigate = useNavigate();
 
@@ -16,6 +16,7 @@ const HeaderPrestaEtAdmin = ({ nom, arrow }) => {
             <div className='headercontainer'>
                 <span className='texte'>{nom}</span>
             </div>
+            {boutonAjouter && <Link to='/ajoutPrestation' className='boutonAjouterPresta'>Ajouter une prestation</Link>}
         </div>
     );
 };
