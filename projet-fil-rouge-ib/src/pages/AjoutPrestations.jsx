@@ -23,7 +23,7 @@ const AjoutPrestations = () => {
 
     return (
         <>
-            <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' />
+            <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' boutonAjouter={false} />
             <FormAjoutPrestations />
         </>
     );
