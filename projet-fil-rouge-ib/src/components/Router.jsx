@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SearchbarPrestation from './SearchbarPrestation';
 import HomePage from '../pages/HomePage';
 import Inscription from '../pages/Inscription';
 import InscriptionSuite from '../pages/InscriptionSuite';
 import AjoutPrestations from '../pages/AjoutPrestations';
-
 // nathan
 
 
