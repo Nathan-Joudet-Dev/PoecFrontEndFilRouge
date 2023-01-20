@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SearchbarPrestation from './SearchbarPrestation';
-
+import HomePage from '../pages/HomePage';
+import Inscription from '../pages/Inscription';
+import InscriptionSuite from '../pages/InscriptionSuite';
+import AjoutPrestations from '../pages/AjoutPrestations';
 // nathan
-
 
 
 
@@ -40,9 +42,11 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element='homepage' />
-
-                <Route path='/nathan' element={<SearchbarPrestation></SearchbarPrestation>} />
+                <Route path='/' element={<HomePage />} />
+                <Route path='/inscription' element={<Inscription />} />
+                <Route path='/inscriptionSuite' element={<InscriptionSuite />} />
+                <Route path='/ajoutPrestation' element={<AjoutPrestations />} />
+                <Route path='/nathan' element='#' />
                 <Route path='/corentin' element='#' />
                 <Route path='/benjamin' element='#' />
 

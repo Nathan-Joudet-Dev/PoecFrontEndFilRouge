@@ -5,7 +5,7 @@ export default class Service {
   // ********** Utilisateurs **********
 
   /**
-   * Récupère la liste des utilisateurs
+   * Récupère la liste des utilisateurs (clients et admin)
    * @returns La liste des utilisateurs
    */
   async recupererUtilisateurs() {
@@ -15,22 +15,10 @@ export default class Service {
   }
 
   /**
-   * Récupère la liste des prestataires
-   * @returns La liste des prestataires
-   */
-  async recupererPrestataires() {
-    const response = await this.recupererUtilisateurs();
-    const prestataires = await response.filter(
-      (utilisateur) => utilisateur.role === "prestataire"
-    );
-    return prestataires;
-  }
-
-  /**
-   * Récupère l'utilisateur correspondant à l'id
-   * @param {number} id L'id de l'utilisateur à rechercher
-   * @returns L'utilisateur correspondant à l'id
-   */
+ * Récupère l'utilisateur correspondant à l'id
+ * @param {number} id L'id de l'utilisateur à rechercher
+ * @returns L'utilisateur correspondant à l'id
+ */
   async recupererUtilisateurById(id) {
     const response = await this.recupererUtilisateurs();
     const utilisateur = await response.find(
@@ -40,13 +28,78 @@ export default class Service {
   }
 
   /**
+   * Récupère la liste des prestataires
+   * @returns La liste des prestataires
+   */
+  async recupererPrestataires() {
+    const response = await axios.get(_url + "/prestataires");
+    const prestataires = await response.data;
+    return prestataires;
+  }
+
+  /**
+   * Récupère le prestataire correspondant à l'id
+   * @param {number} id 
+   * @returns Le prestataire correspondant à l'id
+   */
+  async recupererPrestataireById(id) {
+    const response = await this.recupererPrestataires();
+    const prestataire = await response.find(
+      (prestataire) => prestataire.id === id
+    );
+    return prestataire;
+  }
+
+  /**
    * Crée un nouvel utilisateur
+   * @param {Utilisateurs} utilisateur L'utilisateur à créer
    * @returns L'utilisateur qui vient d'être créé
    */
-  async creerUtilisateur() {
-    const response = await axios.post(_url);
-    const nouvelUtilisateur = await response.data;
-    return nouvelUtilisateur;
+  async creerUtilisateur(utilisateur) {
+    return axios
+      .post(_url + "/utilisateurs", utilisateur)
+      .then((res) => res.data);
+  }
+
+  /**
+   * Crée un nouveau prestataire
+   * @param {Prestaires} prestataire Le prestataire à créer
+   * @returns Le prestataire qui vient d'être créé
+   */
+  async creerPrestataire(prestataire) {
+    return axios
+      .post(_url + "/prestataires", prestataire)
+      .then((res) => res.data);
+  }
+
+  /**
+   * Met à jour le panier de l'utilisateur
+   * @param {number} id L'id de l'utilisateur
+   * @param {Prestations} panier Le panier de l'utilisateur
+   * @returns L'utilisateur avec son panier modifié
+   */
+  async modifierPanierUtilisateur(id, panier) {
+    const response = await axios.patch(
+      _url + `/utilisateurs/${id}`,
+      panier
+    );
+    const utilisateurModifie = response.data;
+    return utilisateurModifie;
+  }
+
+  /**
+   * Met à jour le panier du prestataire
+   * @param {number} id 
+   * @param {Prestations} panier 
+   * @returns Le prestataire avec son panier modifié
+   */
+  async modifierPanierPrestataire(id, panier) {
+    const response = await axios.patch(
+      _url + `/prestataires/${id}`,
+      panier
+    );
+    const prestataireModifie = response.data;
+    return prestataireModifie;
   }
 
   // ********** Prestations **********
@@ -56,7 +109,7 @@ export default class Service {
    * @returns La liste des prestations
    */
   async recupererPrestations() {
-    const response = await axios.get(_url + "/prestatations");
+    const response = await axios.get(_url + "/prestations");
     const prestatations = await response.data;
     return prestatations;
   }
@@ -67,25 +120,36 @@ export default class Service {
    */
   async recupererPrestationsEnCoursOuTerminees() {
     const response = await this.recupererPrestations();
-    const prestationsEnCoursOuTerminées = response.filter(
+    const prestationsEnCoursOuTerminees = response.filter(
       (prestation) =>
         prestation.etat === "En cours" ||
         prestation.etat === "Terminée" ||
         prestation.etat === "Archivée"
     );
-    return prestationsEnCoursOuTerminées;
+    return prestationsEnCoursOuTerminees;
+  }
+
+  /**
+   * Crée une nouvelle prestation
+   * @param {Prestations} prestation 
+   * @returns La prestation qui vient d'être créée
+   */
+  async creerPrestations(prestation) {
+    return axios
+      .post(_url + "/prestations", prestation)
+      .then((res) => res.data);
   }
 
   /**
    * Modifie une prestation
-   * @param {number} id
-   * @param {Prestation} prestation
+   * @param {number} id L'id de la prestation à modifier
+   * @param {string | number | boolean} informations Les informations à modifier (etat, validationPrestataire, validationClient, noteQualiteGlobale, noteCommunication, noteDossierTechnique, noteExpertise, noteMoyenne)
    * @returns La prestation modifiée
    */
-  async modifierPrestations(prestation) {
-    const response = await axios.put(
-      _url + `/prestations/${prestation.id}`,
-      prestation
+  async modifierPrestations(id, informations) {
+    const response = await axios.patch(
+      _url + `/prestations/${id}`,
+      informations
     );
     const prestationModifiee = response.data;
     return prestationModifiee;
