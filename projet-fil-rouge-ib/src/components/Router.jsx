@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SearchbarPrestation from './SearchbarPrestation';
 
 // nathan
 
@@ -41,7 +42,7 @@ const Router = () => {
             <Routes>
                 <Route path='/' element='homepage' />
 
-                <Route path='/nathan' element='#' />
+                <Route path='/nathan' element={<SearchbarPrestation></SearchbarPrestation>} />
                 <Route path='/corentin' element='#' />
                 <Route path='/benjamin' element='#' />
 
