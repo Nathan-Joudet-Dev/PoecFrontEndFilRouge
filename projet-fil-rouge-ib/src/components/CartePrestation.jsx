@@ -12,6 +12,10 @@ const CartePrestation = ({ imageUrl, titre, prix, description }) => {
                 <p className='prixPresta'>{prix} €</p>
                 <div className='descriptionPresta'>{description}</div>
             </div>
+            <div className='detailsEtPanier'>
+                <button className='btnDetails'>Détails</button>
+                <button className='btnAjouter'>Ajouter au panier</button>
+            </div>
         </div>
     );
 };
