@@ -102,7 +102,7 @@ export default class Service {
     return prestataireModifie;
   }
 
-  // ********** Prestations **********
+  // ************************** Prestations **************************
 
   /**
    * Récupère la liste des prestations
@@ -153,5 +153,20 @@ export default class Service {
     );
     const prestationModifiee = response.data;
     return prestationModifiee;
+  }
+
+
+  /**
+   * Ajoute une prestation au panier de l'utilisateur
+   * @param {number} id L'id de l'utilisateur
+   * @param {Prestation} prestation La prestation à ajouter au panier
+   * @returns L'utilisateur avec son panier modifié
+   */
+  async ajouterPrestationAuPanier(id, prestation) {
+    const utilisateur = await this.recupererUtilisateurById(id);
+    utilisateur.panier.push(prestation);
+    const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
+    const utilisateurModifie = response.data;
+    return utilisateurModifie;
   }
 }
