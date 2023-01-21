@@ -4,24 +4,34 @@ import Service from '../assets/ApiService';
 import CartePrestation from './CartePrestation';
 import '../styles/affichagePrestations.css'
 
-const AffichagePrestations = ({ typeDeRecherche }) => {
+const AffichagePrestations = ({ typeDeRecherche, entreprise }) => {
     const [prestations, setPrestations] = useState([])
 
     const _service = new Service();
 
-    // Récupère toutes les prestations ou les prestations filtrées par type
+    // Récupère toutes les prestations, les prestations filtrées par type ou par nom d'entreprise
     useEffect(() => {
+
         async function fetchPrestations() {
-            const prestations = await _service.recupererPrestations();
-            if (typeDeRecherche != "") {
-                const prestationsFiltrees = await prestations.filter(prestation => prestation.type === typeDeRecherche)
-                setPrestations(prestationsFiltrees);
-            } else {
-                setPrestations(prestations);
+            const ListePrestations = await _service.recupererPrestations();
+
+            // Si on recherche par type de prestation
+            if (entreprise == "") {
+
+                if (typeDeRecherche == "Tous types") {
+                    setPrestations(ListePrestations);
+                } else { // Lorsqu'on sélectionne un type
+                    const prestationsFiltrees = await ListePrestations.filter(prestation => prestation.type === typeDeRecherche);
+                    setPrestations(prestationsFiltrees);
+                }
+            } else { // Si on recherche par nom d'entreprise
+                let entrepriseToLower = entreprise.toLowerCase();
+                const prestationsParEntreprise = await ListePrestations.filter(prestation => prestation.prestataire.toLowerCase().includes(entrepriseToLower));
+                setPrestations(prestationsParEntreprise);
             }
         }
         fetchPrestations();
-    }, [typeDeRecherche])
+    }, [typeDeRecherche, entreprise])
 
     return (
         <div className='affichagePrestations'>

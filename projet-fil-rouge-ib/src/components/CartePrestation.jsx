@@ -23,9 +23,8 @@ const CartePrestation = ({ prestation }) => {
     /**
      * Ajoute la prestation au panier du client et affiche un message de confirmation
      */
-    const ajouterAuPanier = () => {
-        client.panier.push(prestation);
-        _service.ajouterPrestationAuPanier(client);
+    async function ajouterAuPanier() {
+        await _service.ajouterPrestationAuPanier(client.id, prestation);
         alert('Prestation ajoutée au panier !')
     }
 

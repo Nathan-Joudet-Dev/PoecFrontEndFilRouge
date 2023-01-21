@@ -13,7 +13,7 @@ const SearchbarPrestation = () => {
 
   const [client, setClient] = useState({})
   const [typeDePrestation, setTypeDePrestation] = useState("")
-
+  const [inputRecherche, setInputRecherche] = useState("")
 
   // Récupère le client actuellement connecté
   useEffect(() => {
@@ -26,24 +26,38 @@ const SearchbarPrestation = () => {
     fetchClient(+id)
   }, [])
 
-  const rechercher = () => {
-    // console.log("Value : " + option.label);
+  /**
+   * Effectue l'action setInputRecherche(e.target.value) et reset l'input type de prestation
+   * @param {string} value La valeur de l'input
+   */
+  const rechercherParNom = (value) => {
+    setInputRecherche(value.toLowerCase());
+    setTypeDePrestation("");
   };
+
+  /**
+   * Effectue l'action setTypeDePrestation(e.target.value) et reset l'input de recherche par nom
+   * @param {string} value La valeur de l'input
+   */
+  const rechercherParType = (value) => {
+    setTypeDePrestation(value);
+    setInputRecherche("");
+  }
 
   return (
     <>
       <div className="navbar">
         <img className="logo" src={logo} alt="Logo UltraMotionCorp" />
         <div className="search">
-          <input type="text" className="Entreprise" placeholder="Je recherche une entreprise..." />
-          <select value={typeDePrestation} onChange={(e) => setTypeDePrestation(e.target.value)}>
+          <input type="text" className="Entreprise" value={inputRecherche} placeholder="Je recherche une entreprise..." onChange={(e) => rechercherParNom(e.target.value)} />
+          <select value={typeDePrestation} onChange={(e) => rechercherParType(e.target.value)}>
             <option value="" label="Tous types"></option>
             <option value="Electricité" label="Electricité"></option>
             <option value="Design" label="Design"></option>
             <option value="Sécurité" label="Sécurité"></option>
             <option value="Jardinage" label="Jardinage"></option>
           </select>
-          <button className="headerBtn" onClick={rechercher} >Rechercher</button>
+          <button className="headerBtn">Rechercher</button>
         </div>
         <div className="Icons">
           <div className="circle">
@@ -55,11 +69,13 @@ const SearchbarPrestation = () => {
           </div>
         </div>
       </div>
-      {typeDePrestation === "" ?
-        <AffichagePrestations typeDeRecherche="" />
-        :
-        <AffichagePrestations typeDeRecherche={typeDePrestation} />
-      }
+      {inputRecherche == "" && (
+        typeDePrestation === "" ?
+          <AffichagePrestations typeDeRecherche="Tous types" entreprise='' />
+          :
+          <AffichagePrestations typeDeRecherche={typeDePrestation} entreprise='' />
+      )}
+      {inputRecherche != "" && <AffichagePrestations typeDeRecherche='' entreprise={inputRecherche} />}
     </>
   );
 }
