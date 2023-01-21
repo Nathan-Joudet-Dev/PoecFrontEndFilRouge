@@ -1,20 +1,47 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/cartePrestation.css'
+import Service from '../assets/ApiService';
 
-const CartePrestation = ({ imageUrl, titre, prix, description }) => {
+const CartePrestation = ({ prestation }) => {
+
+    const _service = new Service();
+
+    const [client, setClient] = useState({})
+
+    useEffect(() => {
+        const id = localStorage.getItem('id');
+
+        // Récupère le client actuellement connecté
+        async function fetchClient(id) {
+            const clientTmp = await _service.recupererUtilisateurById(id);
+            setClient(clientTmp);
+        }
+        fetchClient(+id)
+    }, [])
+
+    /**
+     * Ajoute la prestation au panier du client et affiche un message de confirmation
+     */
+    const ajouterAuPanier = () => {
+        client.panier.push(prestation);
+        _service.ajouterPrestationAuPanier(client);
+        alert('Prestation ajoutée au panier !')
+    }
+
     return (
         <div className='cartePrestation'>
             <div className='imagePresta' >
-                <img src={imageUrl} alt="Prestation" />
+                <img src={prestation.image} alt="Prestation" />
             </div>
             <div className='infosPresta'>
-                <p className='titrePresta'>{titre}</p>
-                <p className='prixPresta'>{prix} €</p>
-                <div className='descriptionPresta'>{description}</div>
+                <p className='titrePresta'>{prestation.titre}</p>
+                <p className='prixPresta'>{prestation.tauxHoraires} €</p>
+                <div className='descriptionPresta'>{prestation.description}</div>
             </div>
             <div className='detailsEtPanier'>
                 <button className='btnDetails'>Détails</button>
-                <button className='btnAjouter'>Ajouter au panier</button>
+                <button className='btnAjouter' onClick={ajouterAuPanier}>Ajouter au panier</button>
             </div>
         </div>
     );
