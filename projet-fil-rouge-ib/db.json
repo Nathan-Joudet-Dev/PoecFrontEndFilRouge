@@ -6,7 +6,41 @@
       "email": "benjamin@email.fr",
       "motDePasse": "benjamin",
       "role": "client",
-      "panier": []
+      "panier": [{
+        "id": 1,
+        "titre": "Câblage d’armoire électrique",
+        "description": "Nous proposons un service de cablage d'armoire électrique complet, comprenant la fourniture et la pose de câbles électriques de qualité et la mise en place des éléments de l'armoire. Nous proposons un devis gratuit et détaillé incluant un plan de cablage et un échéancier précis. Nous sommes à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet. N'hésitez pas à nous contacter pour plus d'informations ou pour obtenir un devis personnalisé.",
+        "tauxHoraires": 70,
+        "coutTotal": 0,
+        "etat": "Disponible",
+        "validationPrestataire": false,
+        "validationClient": false,
+        "noteQualitéGlobale": 0,
+        "noteCommunication": 0,
+        "noteExpertise": 0,
+        "noteMoyenne": 0,
+        "client": "",
+        "prestataire": "Electricité Duval",
+        "image": "images/Electricite_Duval.png",
+        "type": "Electricité"
+      },{
+        "id": 1,
+        "titre": "Câblage d’armoire électrique",
+        "description": "Nous proposons un service de cablage d'armoire électrique complet, comprenant la fourniture et la pose de câbles électriques de qualité et la mise en place des éléments de l'armoire. Nous proposons un devis gratuit et détaillé incluant un plan de cablage et un échéancier précis. Nous sommes à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet. N'hésitez pas à nous contacter pour plus d'informations ou pour obtenir un devis personnalisé.",
+        "tauxHoraires": 70,
+        "coutTotal": 0,
+        "etat": "Disponible",
+        "validationPrestataire": false,
+        "validationClient": false,
+        "noteQualitéGlobale": 0,
+        "noteCommunication": 0,
+        "noteExpertise": 0,
+        "noteMoyenne": 0,
+        "client": "",
+        "prestataire": "Electricité Duval",
+        "image": "images/Electricite_Duval.png",
+        "type": "Electricité"
+      }]
     },
     {
       "id": 2,

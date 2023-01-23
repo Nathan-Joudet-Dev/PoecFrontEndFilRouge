@@ -5,6 +5,7 @@ import HomePage from '../pages/HomePage';
 import Inscription from '../pages/Inscription';
 import InscriptionSuite from '../pages/InscriptionSuite';
 import AjoutPrestations from '../pages/AjoutPrestations';
+
 // nathan
 
 
@@ -19,7 +20,7 @@ import AjoutPrestations from '../pages/AjoutPrestations';
 
 
 
-
+import PanierClient from '../pages/PanierClient';
 
 
 
@@ -48,7 +49,7 @@ const Router = () => {
                 <Route path='/ajoutPrestation' element={<AjoutPrestations />} />
                 <Route path='/client' element={<AccueilClient />} />
                 <Route path='/nathan' element='#' />
-                <Route path='/corentin' element='#' />
+                <Route path='/corentin' element={<PanierClient/>} />
                 <Route path='/benjamin' element='#' />
 
                 <Route path='/*' element='erreur 404' />

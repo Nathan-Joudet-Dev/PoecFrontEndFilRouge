@@ -1,0 +1,94 @@
+.cartePrestationPanier {
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #d5d8e4;
+    margin-bottom: 3%;
+  }
+  
+  .imagePrestation {
+    height: 100%;
+    width: 20%;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .imagePrestation>img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .infosPrestation {
+        display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    margin-top: 0;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    height: 85%;
+    width: 80%;
+  }
+  
+  .FirstRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .etat{
+    display: flex;
+    width: 50vw;
+  }
+
+  .EtatPrestation {
+    border: none;
+    background-color: #ffd814;
+    width: 20vw;
+    height: 3vh;
+    font-size: 20px;
+    margin-right: 5%;
+    border-radius: 15px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+  }
+  
+  .Notation {
+    background-color: #ffd814;
+    border-radius: 15px;
+    border: none;
+    width: 20vw;
+    height: 3vh;
+    font-size: 20px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+
+  }
+  
+  .titrePrestation {
+    color: #0b71d9;
+    font-weight: bold;
+    font-size: 1.5em;
+    top: -18%;
+    left: 1%;
+  }
+  
+  .prixPrestation {
+    align-self: flex-start;
+    top: 5%;
+    left: 1.5%;
+  }
+  
+  .descriptionPrestation {
+    top: 28%;
+    left: 1.5%;
+    height: 70%;
+    width: 95%;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+  }
