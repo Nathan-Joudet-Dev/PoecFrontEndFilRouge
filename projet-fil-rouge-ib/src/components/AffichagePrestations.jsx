@@ -13,7 +13,7 @@ const AffichagePrestations = ({ typeDeRecherche, entreprise }) => {
     useEffect(() => {
 
         async function fetchPrestations() {
-            const ListePrestations = await _service.recupererPrestations();
+            const ListePrestations = await _service.recupererPrestationsDisponibles();
 
             // Si on recherche par type de prestation
             if (entreprise == "") {

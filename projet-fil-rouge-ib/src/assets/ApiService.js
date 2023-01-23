@@ -114,6 +114,14 @@ export default class Service {
     return prestatations;
   }
 
+  async recupererPrestationsDisponibles() {
+    const response = await this.recupererPrestations();
+    const prestationsDisponibles = response.filter(
+      (prestation) => prestation.etat === "Disponible"
+    );
+    return prestationsDisponibles;
+  }
+
   /**
    * Récupère la liste des prestations en cours, terminées ou archivées
    * @returns La liste des prestations en cours, terminées ou archivées
