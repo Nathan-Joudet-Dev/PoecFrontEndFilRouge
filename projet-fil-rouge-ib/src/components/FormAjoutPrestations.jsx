@@ -29,7 +29,7 @@ const FormAjoutPrestations = () => {
      */
     const Ajouter = async (e) => {
         e.preventDefault();
-        const nouvellePrestation = new Prestations(titre, description, tauxHoraire, prestataire.nomSociete, prestataire.logo, prestataire.typeDePrestation);
+        const nouvellePrestation = new Prestations(titre, description, tauxHoraire, prestataire.nomSociete, prestataire.logo, prestataire.domaine);
         await _service.creerPrestations(nouvellePrestation);
     }
 

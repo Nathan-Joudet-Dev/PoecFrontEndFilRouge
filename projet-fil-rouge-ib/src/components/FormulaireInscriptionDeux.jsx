@@ -22,7 +22,6 @@ const FormulaireInscriptionDeux = () => {
     const [effectif, setEffectif] = useState('')
     const [domaine, setDomaine] = useState('')
     const [zoneGeo, setZoneGeo] = useState('')
-    const [typeDePrestation, setTypeDePrestation] = useState('')
 
     useEffect(() => {
         setNomSociete(localStorage.getItem('nomSociete'))
@@ -31,7 +30,7 @@ const FormulaireInscriptionDeux = () => {
     }, [])
 
     async function terminer() {
-        const nouvelUtilisateur = new Prestataires(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo, typeDePrestation)
+        const nouvelUtilisateur = new Prestataires(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo)
         _service.creerPrestataire(nouvelUtilisateur);
         localStorage.removeItem('nomSociete')
         localStorage.removeItem('email')
@@ -64,8 +63,6 @@ const FormulaireInscriptionDeux = () => {
                 <input className='inputInscription inputBottom' type="text" onChange={(e) => setDomaine(e.target.value)} />
                 <label className='labelInscription' htmlFor="ZoneGeographique">Zone géographique couverte</label>
                 <input className='inputInscription inputBottom' type="text" onChange={(e) => setZoneGeo(e.target.value)} />
-                <label className='labelInscription' htmlFor="TypeDePrestation">Type de prestations</label>
-                <input className='inputInscription typePrestation' type="text" onChange={(e) => setTypeDePrestation(e.target.value)} />
             </form>
             <button className='boutonTerminer' onClick={terminer}>Terminer l'inscription</button>
         </div>
