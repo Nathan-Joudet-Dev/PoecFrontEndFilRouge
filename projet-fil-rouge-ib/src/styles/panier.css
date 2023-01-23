@@ -42,7 +42,7 @@
 .PrestationsPanier {
   height: 50vh;
   width: 98%;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

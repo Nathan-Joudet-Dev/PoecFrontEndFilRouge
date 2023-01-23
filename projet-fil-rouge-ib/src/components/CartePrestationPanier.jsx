@@ -19,6 +19,27 @@ const CartePrestationPanier = ({ prestation }) => {
         fetchClient(+id)
     }, [])
 
+    const getCouleur = (etat) => {
+        switch (etat) {
+            case "Disponible":
+                return "#d5d8e4"
+            case "En attente de validation du devis":
+                return "#FFA500"
+            case "En attente d'acceptation du devis":
+                return "#5EE95B"
+            case "Prestation Refusée":
+            case "Devis Refusé":
+                return "#FF0000"
+            case "En Cours":
+                return "#E0FFFF"
+            case "Prestation Terminée":
+                return "#ffd814"
+            default:
+                return "#FFFFFF"
+        }
+    }
+
+
     return (
         <div className='cartePrestationPanier'>
             <div className='imagePrestation' >
@@ -26,14 +47,14 @@ const CartePrestationPanier = ({ prestation }) => {
             </div>
             <div className='infosPrestation'>
                 <div className="FirstRow">
-                <p className='titrePrestation'>{prestation.titre} </p>
-                <div class="etat">
-                <p className='EtatPrestation'>Prestation Terminée</p>
-                <p className='Notation'>Notation </p>
-                </div>
+                    <p className='titrePrestation'>{prestation.titre} </p>
+                    <p className='EtatPrestation' style={{ backgroundColor: getCouleur(prestation.etat) }}>{prestation.etat}</p>
+                    <p className='Notation' hidden={prestation.etat != "Terminée"}>Evaluer cette Prestation </p>
+
                 </div>
                 <p className='prixPrestation'>{prestation.tauxHoraires} €</p>
                 <div className='descriptionPrestation'>{prestation.description}</div>
+                <button className='terminer' hidden={prestation.etat != "En Cours"}>Terminer cette Prestation</button>
             </div>
 
         </div>

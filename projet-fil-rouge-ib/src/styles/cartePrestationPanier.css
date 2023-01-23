@@ -38,8 +38,9 @@
   
   .FirstRow{
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .etat{
@@ -49,11 +50,10 @@
 
   .EtatPrestation {
     border: none;
-    background-color: #ffd814;
     width: 20vw;
     height: 3vh;
-    font-size: 20px;
-    margin-right: 5%;
+    font-size: 1.2em;
+        margin-right: 2%;
     border-radius: 15px;
     box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
   }
@@ -64,17 +64,19 @@
     border: none;
     width: 20vw;
     height: 3vh;
-    font-size: 20px;
+    font-size: 1.2em;
     box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
 
   }
   
   .titrePrestation {
     color: #0b71d9;
+    width: fit-content;
     font-weight: bold;
     font-size: 1.5em;
     top: -18%;
     left: 1%;
+    margin-right: 2%;
   }
   
   .prixPrestation {
@@ -91,4 +93,20 @@
     display: flex;
     justify-content: left;
     text-align: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .terminer {
+    cursor: pointer;
+    border: none;
+    background-color: #007AAF   ;
+    color: white;
+    height: 15%;
+    width: 20%;
+    font-size: 1.2em;
+    margin-right: 5%;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    align-self: flex-end;
   }
