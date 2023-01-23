@@ -44,6 +44,14 @@ const SearchbarPrestation = () => {
     setInputRecherche("");
   }
 
+  /**
+   * Réinitialise les inputs de recherche
+   */
+  const reinitialiser = () => {
+    setTypeDePrestation("");
+    setInputRecherche("");
+  }
+
   return (
     <>
       <div className="navbar">
@@ -57,7 +65,7 @@ const SearchbarPrestation = () => {
             <option value="Sécurité" label="Sécurité"></option>
             <option value="Jardinage" label="Jardinage"></option>
           </select>
-          <button className="headerBtn">Rechercher</button>
+          <button className="headerBtn" onClick={reinitialiser}>Réinitialiser</button>
         </div>
         <div className="Icons">
           <div className="circle">
