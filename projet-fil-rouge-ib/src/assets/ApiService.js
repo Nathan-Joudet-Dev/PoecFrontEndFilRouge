@@ -115,6 +115,18 @@ export default class Service {
   }
 
   /**
+   * Récupère la liste des prestations disponibles
+   * @returns La liste des prestations disponibles
+   */
+  async recupererPrestationsDisponibles() {
+    const response = await this.recupererPrestations();
+    const prestationsDisponibles = response.filter(
+      (prestation) => prestation.etat === "Disponible"
+    );
+    return prestationsDisponibles;
+  }
+
+  /**
    * Récupère la liste des prestations en cours, terminées ou archivées
    * @returns La liste des prestations en cours, terminées ou archivées
    */

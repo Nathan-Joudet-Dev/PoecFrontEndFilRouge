@@ -22,7 +22,7 @@ export default class Prestations {
 
   // Contructeur
 
-  constructor(titre, description, tauxHoraires, prestataire, image) {
+  constructor(titre, description, tauxHoraires, prestataire, image, type) {
     this.titre = titre;
     this.description = description;
     this.tauxHoraires = tauxHoraires;
@@ -38,6 +38,6 @@ export default class Prestations {
     this.client = "";
     this.prestataire = prestataire;
     this.image = image;
-    this.type = "";
+    this.type = type;
   }
 }
