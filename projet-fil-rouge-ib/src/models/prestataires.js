@@ -18,11 +18,10 @@ export default class Prestataires {
     effectif = "";
     domaine = "";
     zoneGeo = "";
-    typeDePrestation = "";
 
     // Contructeur
 
-    constructor(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo, typeDePrestation) {
+    constructor(nomSociete, email, motDePasse, logo, description, telephone, adresse, pays, siret, ville, effectif, domaine, zoneGeo) {
         this.nomSociete = nomSociete;
         this.email = email;
         this.motDePasse = motDePasse;
@@ -36,6 +35,5 @@ export default class Prestataires {
         this.effectif = effectif;
         this.domaine = domaine;
         this.zoneGeo = zoneGeo;
-        this.typeDePrestation = typeDePrestation;
     }
 }

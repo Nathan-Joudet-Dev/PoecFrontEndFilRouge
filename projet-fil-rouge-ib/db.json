@@ -33,9 +33,8 @@
       "siret": "",
       "ville": "",
       "effectif": "",
-      "domaine": "",
-      "zoneGeo": "",
-      "typeDePrestation": "Design et Marketing"
+      "domaine": "Design et Marketing",
+      "zoneGeo": ""
     },
     {
       "id": 2,
@@ -52,9 +51,8 @@
       "siret": "",
       "ville": "",
       "effectif": "",
-      "domaine": "",
-      "zoneGeo": "",
-      "typeDePrestation": "Sécurité"
+      "domaine": "Sécurité",
+      "zoneGeo": ""
     },
     {
       "id": 3,
@@ -71,9 +69,8 @@
       "siret": "",
       "ville": "",
       "effectif": "",
-      "domaine": "",
-      "zoneGeo": "",
-      "typeDePrestation": "Electricité"
+      "domaine": "Electricité",
+      "zoneGeo": ""
     },
     {
       "id": 4,
@@ -90,9 +87,8 @@
       "siret": "",
       "ville": "",
       "effectif": "",
-      "domaine": "",
-      "zoneGeo": "",
-      "typeDePrestation": "Jardinage"
+      "domaine": "Jardinage",
+      "zoneGeo": ""
     }
   ],
   "prestations": [
@@ -130,7 +126,7 @@
       "client": "",
       "prestataire": "Design et Marketing",
       "image": "images/Design_et_Marketing.png",
-      "type": "Design"
+      "type": "Design et Marketing"
     },
     {
       "id": 3,
