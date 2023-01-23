@@ -114,6 +114,10 @@ export default class Service {
     return prestatations;
   }
 
+  /**
+   * Récupère la liste des prestations disponibles
+   * @returns La liste des prestations disponibles
+   */
   async recupererPrestationsDisponibles() {
     const response = await this.recupererPrestations();
     const prestationsDisponibles = response.filter(

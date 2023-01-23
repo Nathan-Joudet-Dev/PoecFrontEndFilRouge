@@ -66,6 +66,12 @@
 
 .inputFlex {
   width: 31vw;
+  margin-left: 3.8%;
+}
+
+.typePrestation {
+  width: 30%;
+  margin-left: 3.8%;
 }
 
 .boutonTerminer {
