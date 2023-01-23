@@ -61,7 +61,7 @@ const SearchbarPrestation = () => {
           <select value={typeDePrestation} onChange={(e) => rechercherParType(e.target.value)}>
             <option value="" label="Tous types"></option>
             <option value="Electricité" label="Electricité"></option>
-            <option value="Design" label="Design"></option>
+            <option value="Design et Marketing" label="Design et Marketing"></option>
             <option value="Sécurité" label="Sécurité"></option>
             <option value="Jardinage" label="Jardinage"></option>
           </select>

@@ -126,7 +126,7 @@
       "client": "",
       "prestataire": "Design et Marketing",
       "image": "images/Design_et_Marketing.png",
-      "type": "Design"
+      "type": "Design et Marketing"
     },
     {
       "id": 3,
@@ -199,44 +199,6 @@
       "prestataire": "Nature et Création",
       "image": "images/Nature_et_Creation.png",
       "type": "Jardinage"
-    },
-    {
-      "id": 7,
-      "titre": "test",
-      "description": "test",
-      "tauxHoraires": "78",
-      "coutTotal": 0,
-      "etat": "Disponible",
-      "validationPrestataire": false,
-      "validationClient": false,
-      "noteQualiteGlobale": 0,
-      "noteCommunication": 0,
-      "noteDossierTechnique": 0,
-      "noteExpertise": 0,
-      "noteMoyenne": 0,
-      "client": "",
-      "prestataire": "Design et Marketing",
-      "image": "images/Design_et_Marketing.png",
-      "type": "Design et Marketing"
-    },
-    {
-      "id": 8,
-      "titre": "test 2",
-      "description": "test 2",
-      "tauxHoraires": "222",
-      "coutTotal": 0,
-      "etat": "Disponible",
-      "validationPrestataire": false,
-      "validationClient": false,
-      "noteQualiteGlobale": 0,
-      "noteCommunication": 0,
-      "noteDossierTechnique": 0,
-      "noteExpertise": 0,
-      "noteMoyenne": 0,
-      "client": "",
-      "prestataire": "Design et Marketing",
-      "image": "images/Design_et_Marketing.png",
-      "type": "Design et Marketing"
     }
   ]
 }
