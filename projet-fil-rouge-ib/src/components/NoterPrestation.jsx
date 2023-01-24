@@ -4,64 +4,60 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/noterPrestation.css'
 import Service from '../assets/ApiService';
 
-import SearchbarPrestation from './SearchbarPrestation';
-
 const NoterPrestation = ({ prestation }) => {
 
     const [qualiteGlobale, setQualiteGlobale] = useState(0);
     const [communication, setCommunication] = useState(0);
     const [dossierTechnique, setDossierTechnique] = useState(0);
     const [expertise, setExpertise] = useState(0);
-    const [noteMoyenne, setNoteMoyenne] = useState(0);
 
     const _navigate = useNavigate();
     const _service = new Service();
 
-    const [prestationNotee, setPrestationNotee] = useState(prestation)
+    const [prestationNotee, setPrestationNotee] = useState({})
+
+    useEffect(() => {
+        setPrestationNotee(prestation)
+    })
 
     const noteQualiteGlobale = (e) => {
-        setQualiteGlobale(e.target.value);
+        setQualiteGlobale(parseInt(e.target.value));
     };
 
     const noteCommunication = (e) => {
-        setCommunication(e.target.value);
+        setCommunication(parseInt(e.target.value));
     };
 
     const noteDossierTechnique = (e) => {
-        setDossierTechnique(e.target.value);
+        setDossierTechnique(parseInt(e.target.value));
     };
 
     const noteExpertise = (e) => {
-        setExpertise(e.target.value);
+        setExpertise(parseInt(e.target.value));
     };
 
     function retourNotation() {
         _navigate(-1);
     };
 
-    function validerNotations() {
+    async function validerNotations() {
         if (qualiteGlobale === 0 || communication === 0 || dossierTechnique === 0 || expertise === 0) {
             alert('Erreur, veuillez noter toutes les catégories');
         }
         else {
-            const moyenne = (qualiteGlobale + communication + dossierTechnique + expertise) / 4;
-            setNoteMoyenne(moyenne);
-
             prestationNotee.noteQualiteGlobale = qualiteGlobale;
             prestationNotee.noteCommunication = communication;
             prestationNotee.noteDossierTechnique = dossierTechnique;
             prestationNotee.noteExpertise = expertise;
-            prestationNotee.noteMoyenne = noteMoyenne;
+            prestationNotee.noteMoyenne = (qualiteGlobale + communication + dossierTechnique + expertise) / 4;
             prestationNotee.etat = 'Archivée';
 
             _service.noterPrestation(prestationNotee);
-
         }
     };
 
     return (
         <>
-            <SearchbarPrestation />
             <div className='noterPrestation'>
                 <h1 className='titreEvaluerPrestation'>EVALUER CETTE PRESTATION</h1>
                 <div className='divQualiteGlobale'>
