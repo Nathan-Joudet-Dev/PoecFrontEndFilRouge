@@ -98,36 +98,6 @@ export default class Service {
     return panierPrestataire;
   }
 
-  // /**
-  //  * Met à jour le panier de l'utilisateur
-  //  * @param {number} id L'id de l'utilisateur
-  //  * @param {Prestations} panier Le panier de l'utilisateur
-  //  * @returns L'utilisateur avec son panier modifié
-  //  */
-  // async modifierPanierUtilisateur(id, panier) {
-  //   const response = await axios.patch(
-  //     _url + `/utilisateurs/${id}`,
-  //     panier
-  //   );
-  //   const utilisateurModifie = response.data;
-  //   return utilisateurModifie;
-  // }
-
-  // /**
-  //  * Met à jour le panier du prestataire
-  //  * @param {number} id 
-  //  * @param {Prestations} panier 
-  //  * @returns Le prestataire avec son panier modifié
-  //  */
-  // async modifierPanierPrestataire(id, panier) {
-  //   const response = await axios.patch(
-  //     _url + `/prestataires/${id}`,
-  //     panier
-  //   );
-  //   const prestataireModifie = response.data;
-  //   return prestataireModifie;
-  // }
-
   // ************************** Prestations **************************
 
   /**
@@ -193,20 +163,11 @@ export default class Service {
     return prestationModifiee;
   }
 
-  // /**
-  //  * Ajoute une prestation au panier de l'utilisateur
-  //  * @param {number} id L'id de l'utilisateur
-  //  * @param {Prestation} prestation La prestation à ajouter au panier
-  //  * @returns L'utilisateur avec son panier modifié
-  //  */
-  // async ajouterPrestationAuPanier(id, prestation) {
-  //   const utilisateur = await this.recupererUtilisateurById(id);
-  //   utilisateur.panier.push(prestation);
-  //   const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
-  //   const utilisateurModifie = response.data;
-  //   return utilisateurModifie;
-  // }
-
+  /**
+   * Ajoute les notes pour la prestation
+   * @param {Prestations} prestationNotee La prestation à noter
+   * @returns La prestation après modifications
+   */
   async noterPrestation(prestationNotee) {
 
     const response = await axios.put(
