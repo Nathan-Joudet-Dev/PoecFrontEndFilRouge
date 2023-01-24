@@ -73,6 +73,20 @@ export default class Service {
   }
 
   /**
+   * Ajoute une prestation au panier de l'utilisateur
+   * @param {number} id L'id de l'utilisateur
+   * @param {Prestation} prestation La prestation à ajouter au panier
+   * @returns L'utilisateur avec son panier modifié
+   */
+  async ajouterPrestationAuPanier(id, prestation) {
+    const utilisateur = await this.recupererUtilisateurById(id);
+    utilisateur.panier.push(prestation);
+    const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
+    const utilisateurModifie = response.data;
+    return utilisateurModifie;
+  }
+
+  /**
    * Récupère le panier du client
    * @param {Utilisateurs} client Le client
    * @returns Le panier du client

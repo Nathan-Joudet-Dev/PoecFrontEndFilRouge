@@ -5,7 +5,8 @@
       "nom": "Benjamin",
       "email": "benjamin@email.fr",
       "motDePasse": "benjamin",
-      "role": "client"
+      "role": "client",
+      "panier": []
     },
     {
       "id": 2,
