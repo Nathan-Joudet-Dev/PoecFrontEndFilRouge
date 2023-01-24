@@ -7,7 +7,6 @@ export default class Prestataires {
     email = "";
     motDePasse = "";
     role = "prestataire";
-    panier = [];
     logo = "";
     description = "";
     telephone = "";

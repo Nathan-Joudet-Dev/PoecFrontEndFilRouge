@@ -73,33 +73,29 @@ export default class Service {
   }
 
   /**
-   * Met à jour le panier de l'utilisateur
-   * @param {number} id L'id de l'utilisateur
-   * @param {Prestations} panier Le panier de l'utilisateur
-   * @returns L'utilisateur avec son panier modifié
+   * Récupère le panier du client
+   * @param {Utilisateurs} client Le client
+   * @returns Le panier du client
    */
-  async modifierPanierUtilisateur(id, panier) {
-    const response = await axios.patch(
-      _url + `/utilisateurs/${id}`,
-      panier
+  async recupererPanierClient(client) {
+    const prestations = await this.recupererPrestations();
+    const panierClient = await prestations.filter(
+      (prestation) => prestation.client === client.nom && prestation.etat !== "Disponible"
     );
-    const utilisateurModifie = response.data;
-    return utilisateurModifie;
+    return panierClient;
   }
 
   /**
-   * Met à jour le panier du prestataire
-   * @param {number} id 
-   * @param {Prestations} panier 
-   * @returns Le prestataire avec son panier modifié
+   * Récupère le panier du prestataire
+   * @param {Prestataires} prestataire 
+   * @returns Le panier du prestataire
    */
-  async modifierPanierPrestataire(id, panier) {
-    const response = await axios.patch(
-      _url + `/prestataires/${id}`,
-      panier
+  async recupererPanierPrestataire(prestataire) {
+    const prestations = await this.recupererPrestations();
+    const panierPrestataire = await prestations.filter(
+      (prestation) => prestation.prestataire === prestataire.nomSociete && prestation.etat !== "Disponible"
     );
-    const prestataireModifie = response.data;
-    return prestataireModifie;
+    return panierPrestataire;
   }
 
   // ************************** Prestations **************************
@@ -167,18 +163,18 @@ export default class Service {
     return prestationModifiee;
   }
 
-
   /**
-   * Ajoute une prestation au panier de l'utilisateur
-   * @param {number} id L'id de l'utilisateur
-   * @param {Prestation} prestation La prestation à ajouter au panier
-   * @returns L'utilisateur avec son panier modifié
+   * Ajoute les notes pour la prestation
+   * @param {Prestations} prestationNotee La prestation à noter
+   * @returns La prestation après modifications
    */
-  async ajouterPrestationAuPanier(id, prestation) {
-    const utilisateur = await this.recupererUtilisateurById(id);
-    utilisateur.panier.push(prestation);
-    const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
-    const utilisateurModifie = response.data;
-    return utilisateurModifie;
+  async noterPrestation(prestationNotee) {
+
+    const response = await axios.put(
+      _url + `/prestations/${prestationNotee.id}`,
+      prestationNotee
+    );
+    const prestationModifiee = response.data;
+    return prestationModifiee;
   }
 }
