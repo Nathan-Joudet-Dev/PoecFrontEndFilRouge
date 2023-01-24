@@ -16,6 +16,7 @@ const NoterPrestation = ({ prestation }) => {
 
     const [prestationNotee, setPrestationNotee] = useState({})
 
+    // Récupère la prestation à noter dans un state
     useEffect(() => {
         setPrestationNotee(prestation)
     })
@@ -40,6 +41,9 @@ const NoterPrestation = ({ prestation }) => {
         _navigate(-1);
     };
 
+    /**
+     * Vérifie que toutes les catégories ont été notées, puis ajoute les notes pour la prestation
+     */
     async function validerNotations() {
         if (qualiteGlobale === 0 || communication === 0 || dossierTechnique === 0 || expertise === 0) {
             alert('Erreur, veuillez noter toutes les catégories');
