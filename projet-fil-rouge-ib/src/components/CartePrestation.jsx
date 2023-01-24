@@ -22,7 +22,7 @@ const CartePrestation = ({ prestation }) => {
     }, [])
 
     /**
-     * Crée une nouvelle prestation, l'ajoute au panier du client et dans la BDD et affiche un message de confirmation
+     * Crée une nouvelle prestation, l'ajoute dans la BDD et affiche un message de confirmation
      */
     async function ajouterAuPanier() {
 
@@ -37,9 +37,8 @@ const CartePrestation = ({ prestation }) => {
         nouvellePrestation.client = client.nom;
         nouvellePrestation.etat = 'En attente de validation du panier';
 
-        // Ajoute la prestation dans la BDD et dans le panier du client
+        // Ajoute la prestation dans la BDD
         await _service.creerPrestations(nouvellePrestation);
-        await _service.ajouterPrestationAuPanier(client.id, nouvellePrestation);
         alert('Prestation ajoutée au panier !')
     }
 
