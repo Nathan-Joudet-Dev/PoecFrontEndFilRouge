@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import '../styles/cartePrestation.css'
 import Service from '../assets/ApiService';
-import Prestations from '../models/prestations';
 
 const CartePrestation = ({ prestation }) => {
 
@@ -22,23 +21,10 @@ const CartePrestation = ({ prestation }) => {
     }, [])
 
     /**
-     * Crée une nouvelle prestation, l'ajoute dans la BDD et affiche un message de confirmation
+     * Ajoute la prestation au panier du client et affiche un message de confirmation
      */
     async function ajouterAuPanier() {
-
-        const nouvellePrestation = new Prestations(
-            prestation.titre,
-            prestation.description,
-            prestation.tauxHoraires,
-            prestation.prestataire,
-            prestation.image,
-            prestation.type
-        )
-        nouvellePrestation.client = client.nom;
-        nouvellePrestation.etat = 'En attente de validation du panier';
-
-        // Ajoute la prestation dans la BDD
-        await _service.creerPrestations(nouvellePrestation);
+        await _service.ajouterPrestationAuPanier(client.id, prestation);
         alert('Prestation ajoutée au panier !')
     }
 
