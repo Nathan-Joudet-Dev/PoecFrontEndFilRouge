@@ -7,7 +7,6 @@ export default class Utilisateurs {
   email = "";
   motDePasse = "";
   role = "client";
-  panier = [];
 
   // Contructeur
 
