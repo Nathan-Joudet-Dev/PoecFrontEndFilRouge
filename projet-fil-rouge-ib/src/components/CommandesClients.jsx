@@ -5,7 +5,8 @@ import '../styles/panier.css';
 import CartePrestationPanier from './CartePrestationPanier';
 import Prestations from '../models/prestations';
 
-const Panier = () => {
+const CommandesClients = () => {
+
     const _service = new Service();
 
     const [client, setClient] = useState({})
@@ -29,30 +30,6 @@ const Panier = () => {
         fetchClient(+id)
     }, [])
 
-    async function validerMaCommande() {
-        panier.forEach(async (prestation) => {
-            if (prestation.etat === "Disponible") {
-                const nouvellePrestation = new Prestations(
-                    prestation.titre,
-                    prestation.description,
-                    prestation.tauxHoraires,
-                    prestation.prestataire,
-                    prestation.image,
-                    prestation.type
-                )
-                nouvellePrestation.client = client.nom;
-                nouvellePrestation.etat = "En attente de validation du panier";
-
-                await _service.creerPrestations(nouvellePrestation);
-                alert("Votre commande a bien été prise en compte !");
-
-                // Supprime la/les prestation(s) du panier
-                client.panier = [];
-                // _service.modifierUtilisateur(client);
-            }
-        })
-    }
-
     return (
         <div className="main">
             <div className="panier">
@@ -71,10 +48,10 @@ const Panier = () => {
                 <p className='maCommande'>Ma Commande</p>
                 <div className='separationMaCommande'></div>
                 <p className='sousTotal'>Sous-total ({panier.length} Prestations) :<b> {sousTotal} € </b> </p>
-                <button className='validerCommande' onClick={validerMaCommande}>Valider ma Commande</button>
+                <button className='validerCommande'>Valider ma Commande</button>
             </div>
         </div>
     );
 };
 
-export default Panier;
+export default CommandesClients;

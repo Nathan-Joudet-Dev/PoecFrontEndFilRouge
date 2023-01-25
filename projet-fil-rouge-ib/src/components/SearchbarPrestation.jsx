@@ -6,10 +6,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
 import Service from "../assets/ApiService";
 import AffichagePrestations from '../components/AffichagePrestations';
+import { useNavigate } from "react-router-dom";
 
 const SearchbarPrestation = () => {
 
   const _service = new Service();
+  const _navigate = useNavigate();
 
   const [client, setClient] = useState({})
   const [typeDePrestation, setTypeDePrestation] = useState("")
@@ -65,7 +67,7 @@ const SearchbarPrestation = () => {
             <p>{client.nom} </p>
           </div>
           <div className="basket">
-            <SlBasket className="Basket" />
+            <SlBasket className="Basket" onClick={_navigate('/panierClient')} />
           </div>
         </div>
       </div>

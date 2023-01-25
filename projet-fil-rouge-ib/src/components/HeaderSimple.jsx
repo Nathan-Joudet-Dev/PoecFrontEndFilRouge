@@ -28,8 +28,7 @@ const HeaderSimple = () => {
     <>
       <div className="navbarSimple">
         <img className="logo" src={logo} alt="Logo UltraMotionCorp" />
-        <div className="search">
-        </div>
+        <div className="search"></div>
         <div className="Icons">
           <div className="circle">
             <FaUserCircle className="userCircle" />
@@ -40,7 +39,7 @@ const HeaderSimple = () => {
           </div>
         </div>
       </div>
-     
+
     </>
   );
 }
