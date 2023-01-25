@@ -54,6 +54,10 @@ const SearchbarPrestation = () => {
     setInputRecherche("");
   }
 
+  function voirPanier() {
+    _navigate('/panierClient')
+  }
+
   return (
     <>
       <div className="navbar">
@@ -75,7 +79,7 @@ const SearchbarPrestation = () => {
             <p>{client.nom} </p>
           </div>
           <div className="basket">
-            <SlBasket className="Basket" onClick={_navigate('/panierClient')} />
+            <SlBasket className="Basket" onClick={voirPanier} />
           </div>
         </div>
       </div>
