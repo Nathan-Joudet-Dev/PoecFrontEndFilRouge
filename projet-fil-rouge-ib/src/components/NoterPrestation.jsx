@@ -56,7 +56,9 @@ const NoterPrestation = ({ prestation }) => {
             prestationNotee.noteMoyenne = (qualiteGlobale + communication + dossierTechnique + expertise) / 4;
             prestationNotee.etat = 'Archivée';
 
-            _service.noterPrestation(prestationNotee);
+            await _service.noterPrestation(prestationNotee);
+            alert("Merci d'avoir noté cette prestation !")
+            window.location.reload();
         }
     };
 
