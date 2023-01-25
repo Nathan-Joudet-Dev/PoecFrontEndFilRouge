@@ -1,9 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService';
-import '../styles/panier.css';
+import '../styles/commandesClients.css';
 import CartePrestationPanier from './CartePrestationPanier';
-import Prestations from '../models/prestations';
 
 const CommandesClients = () => {
 
@@ -11,7 +10,6 @@ const CommandesClients = () => {
 
     const [client, setClient] = useState({})
     const [panier, setPanier] = useState([])
-    const [sousTotal, setSousTotal] = useState(0)
 
     useEffect(() => {
         const id = localStorage.getItem('id');
@@ -20,21 +18,17 @@ const CommandesClients = () => {
         async function fetchClient(id) {
             const clientTmp = await _service.recupererUtilisateurById(id);
             setClient(clientTmp);
-            setPanier(clientTmp.panier);
-
-            // Pour récupérer le sous-total (la somme des taux horaires des prestations du panier)
-            const taux = clientTmp.panier.map((prestation) => prestation.tauxHoraires);
-            const total = taux.reduce((acc, taux) => acc + taux, 0);
-            setSousTotal(total);
+            const panierTmp = await _service.recupererPanierClient(clientTmp)
+            setPanier(panierTmp);
         }
         fetchClient(+id)
     }, [])
 
     return (
-        <div className="main">
-            <div className="panier">
-                <div className="headerPanier"><h3 className="titrePanier">Prestations Sélectionnées</h3></div>
-                <div className='PrestationsPanier'>
+        <div className="mainCommandes">
+            <div className="panierCommandes">
+                <div className="headerCommandes"><h3 className="titreCommandes">Prestations Sélectionnées</h3></div>
+                <div className='PrestationsCommandes'>
                     {panier && (
                         panier.map((prestation) => {
                             return (
@@ -43,12 +37,6 @@ const CommandesClients = () => {
                         })
                     )}
                 </div>
-            </div>
-            <div className='Total'>
-                <p className='maCommande'>Ma Commande</p>
-                <div className='separationMaCommande'></div>
-                <p className='sousTotal'>Sous-total ({panier.length} Prestations) :<b> {sousTotal} € </b> </p>
-                <button className='validerCommande'>Valider ma Commande</button>
             </div>
         </div>
     );

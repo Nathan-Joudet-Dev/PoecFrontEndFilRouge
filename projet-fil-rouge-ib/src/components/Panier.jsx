@@ -29,28 +29,30 @@ const Panier = () => {
         fetchClient(+id)
     }, [])
 
+    /**
+     * Crée une nouvelle prestation pour chaque prestation dans le panier, et supprime le panier du client
+     */
     async function validerMaCommande() {
         panier.forEach(async (prestation) => {
-            if (prestation.etat === "Disponible") {
-                const nouvellePrestation = new Prestations(
-                    prestation.titre,
-                    prestation.description,
-                    prestation.tauxHoraires,
-                    prestation.prestataire,
-                    prestation.image,
-                    prestation.type
-                )
-                nouvellePrestation.client = client.nom;
-                nouvellePrestation.etat = "En attente de validation du panier";
+            const nouvellePrestation = new Prestations(
+                prestation.titre,
+                prestation.description,
+                prestation.tauxHoraires,
+                prestation.prestataire,
+                prestation.image,
+                prestation.type
+            )
+            nouvellePrestation.client = client.nom;
+            nouvellePrestation.etat = "Demande envoyée";
 
-                await _service.creerPrestations(nouvellePrestation);
-                alert("Votre commande a bien été prise en compte !");
-
-                // Supprime la/les prestation(s) du panier
-                client.panier = [];
-                // _service.modifierUtilisateur(client);
-            }
+            await _service.creerPrestations(nouvellePrestation);
         })
+
+        // Supprime la/les prestation(s) du panier
+        await _service.supprimerPanierUtilisateur(client.id);
+
+        alert("Votre commande a bien été prise en compte !");
+        window.location.reload()
     }
 
     return (

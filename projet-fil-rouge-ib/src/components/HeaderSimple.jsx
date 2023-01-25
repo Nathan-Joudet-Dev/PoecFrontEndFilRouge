@@ -5,10 +5,18 @@ import { FaUserCircle } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
 import Service from "../assets/ApiService";
 import '../styles/headerSimple.css'
+import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom';
 
 const HeaderSimple = () => {
 
   const _service = new Service();
+
+  const _navigate = useNavigate();
+
+  const retour = () => {
+    _navigate(-1)
+  }
 
   const [client, setClient] = useState({})
 
@@ -23,10 +31,10 @@ const HeaderSimple = () => {
     fetchClient(+id)
   }, [])
 
-
   return (
     <>
       <div className="navbarSimple">
+        <AiOutlineArrowLeft className='arrow' onClick={retour} />
         <img className="logo" src={logo} alt="Logo UltraMotionCorp" />
         <div className="search"></div>
         <div className="Icons">
@@ -39,7 +47,6 @@ const HeaderSimple = () => {
           </div>
         </div>
       </div>
-
     </>
   );
 }

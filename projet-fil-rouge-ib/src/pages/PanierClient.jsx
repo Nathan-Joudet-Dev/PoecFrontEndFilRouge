@@ -12,6 +12,9 @@ const PanierClient = () => {
   const [panierClassName, setPanierClassName] = useState("affichageSpanSelected");
   const [commandesClassName, setCommandesClassName] = useState("affichageSpan");
 
+  /**
+   * Affiche le panier du client
+   */
   function affichagePanier() {
     setAfficherPanier(!afficherPanier);
     setAfficherCommandes(!afficherCommandes);
@@ -19,6 +22,9 @@ const PanierClient = () => {
     setCommandesClassName("affichageSpan");
   }
 
+  /**
+   * Affiche les commandes du client
+   */
   function affichageCommandes() {
     setAfficherPanier(!afficherPanier);
     setAfficherCommandes(!afficherCommandes);

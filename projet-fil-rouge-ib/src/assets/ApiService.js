@@ -73,6 +73,18 @@ export default class Service {
   }
 
   /**
+   * Modifie les informations d'un utilisateur
+   * @param {number} id L'id de l'utilisateur à modifier
+   * @param {Utilisateurs} utilisateur L'utilisateur
+   * @returns L'utilisateur modifié
+   */
+  async modifierUtilisateur(id, utilisateur) {
+    const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
+    const utilisateurModifie = await response.data;
+    return utilisateurModifie;
+  }
+
+  /**
    * Ajoute une prestation au panier de l'utilisateur
    * @param {number} id L'id de l'utilisateur
    * @param {Prestation} prestation La prestation à ajouter au panier
@@ -81,6 +93,19 @@ export default class Service {
   async ajouterPrestationAuPanier(id, prestation) {
     const utilisateur = await this.recupererUtilisateurById(id);
     utilisateur.panier.push(prestation);
+    const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
+    const utilisateurModifie = response.data;
+    return utilisateurModifie;
+  }
+
+  /**
+   * Supprime le panier de l'utilisateur
+   * @param {number} id 
+   * @returns L'utilisateur avec son panier supprimé
+   */
+  async supprimerPanierUtilisateur(id) {
+    const utilisateur = await this.recupererUtilisateurById(id);
+    utilisateur.panier = [];
     const response = await axios.put(_url + `/utilisateurs/${id}`, utilisateur);
     const utilisateurModifie = response.data;
     return utilisateurModifie;
