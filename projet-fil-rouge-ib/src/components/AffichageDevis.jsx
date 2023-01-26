@@ -1,9 +1,11 @@
 import React from 'react';
 import Service from '../assets/ApiService';
+import { useNavigate } from 'react-router-dom';
 
 const AffichageDevis = ({ prestation }) => {
 
     const _service = new Service();
+    const _navigate = useNavigate();
 
     /**
      * Accepte le devis et passe l'état de la prestation à "En cours"
@@ -12,17 +14,17 @@ const AffichageDevis = ({ prestation }) => {
         prestation.etat = "En cours";
 
         await _service.modifierPrestations(prestation.id, prestation);
-        window.location.reload();
+        _navigate(-1);
     };
 
     /**
      * Refuse le devis et passe l'état de la prestation à "Devis Refusé"
-     */
+    */
     const refuserDevis = async () => {
         prestation.etat = "Devis Refusé";
 
         await _service.modifierPrestations(prestation.id, prestation);
-        window.location.reload();
+        _navigate(-1);
     };
 
     return (

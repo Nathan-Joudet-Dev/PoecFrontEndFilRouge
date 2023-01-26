@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import "../styles/cartePrestationPanier.css";
 import Service from "../assets/ApiService";
-import NoterPrestation from "./NoterPrestation";
-import AffichageDevis from "./AffichageDevis";
+import { useNavigate } from "react-router-dom";
 
 const CartePrestationPanier = ({ prestation }) => {
   const _service = new Service();
+  const _navigate = useNavigate();
 
   const [client, setClient] = useState({});
   const [prestationTerminee, setPrestationTerminee] = useState();
   const [prestationTermineeDesDeuxCotes, setPrestationTermineeDesDeuxCotes] = useState(false);
-  const [noterPrestation, setNoterPrestation] = useState(false);
-  const [afficherDevis, setAfficherDevis] = useState(false);
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -62,7 +60,8 @@ const CartePrestationPanier = ({ prestation }) => {
    * Affiche le devis
    */
   const consulterDevis = async () => {
-    setAfficherDevis(true);
+    localStorage.setItem("idPrestation", prestation.id)
+    _navigate('/affichageDevis')
   };
 
   /**
@@ -88,68 +87,57 @@ const CartePrestationPanier = ({ prestation }) => {
    * Affiche le composant pour noter la prestation
    */
   const noterPresta = async () => {
-    setNoterPrestation(true);
+    localStorage.setItem("idPrestation", prestation.id)
+    _navigate('/noterPrestation')
   }
 
   return (
-    <>
-      {!noterPrestation && (
-        !afficherDevis && (
-          <div className="cartePrestationPanier">
-            <div className="imagePrestation">
-              <img src={prestation.image} alt="Prestation" />
-            </div>
-            <div className="infosPrestation">
-              <div className="FirstRow">
-                <p className="titrePrestation">{prestation.titre} </p>
-                <p
-                  className="EtatPrestation"
-                  hidden={
-                    prestation.etat === "Disponible" ||
-                    prestation.etat === "En attente de validation du panier"
-                  }
-                  style={{ backgroundColor: getCouleur(prestation.etat) }}
-                >
-                  {prestation.etat}
-                </p>
-                <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
-                  Evaluer cette Prestation{" "}
-                </p>
-              </div>
+    <div className="cartePrestationPanier">
+      <div className="imagePrestation">
+        <img src={prestation.image} alt="Prestation" />
+      </div>
+      <div className="infosPrestation">
+        <div className="FirstRow">
+          <p className="titrePrestation">{prestation.titre} </p>
+          <p
+            className="EtatPrestation"
+            hidden={
+              prestation.etat === "Disponible" ||
+              prestation.etat === "En attente de validation du panier"
+            }
+            style={{ backgroundColor: getCouleur(prestation.etat) }}
+          >
+            {prestation.etat}
+          </p>
+          <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
+            Evaluer cette Prestation{" "}
+          </p>
+        </div>
 
-              {prestation.devis == {} && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
-              {prestation.devis != {} && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
+        {prestation.devis == {} && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
+        {prestation.devis != {} && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
 
-              <div className="descriptionPrestation">{prestation.description}</div>
-              {!prestationTerminee && (
-                <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"}>Terminer cette Prestation</button>
-              )}
-              {prestationTerminee && (
-                <button className="terminer">Prestation Terminée</button>
-              )}
-              <div className='boutonsAccepterRefuser'>
-                <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
-                  Consulter le devis
+        <div className="descriptionPrestation">{prestation.description}</div>
+        {!prestationTerminee && (
+          <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"}>Terminer cette Prestation</button>
+        )}
+        {prestationTerminee && (
+          <button className="terminer">Prestation Terminée</button>
+        )}
+        <div className='boutonsAccepterRefuser'>
+          <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
+            Consulter le devis
+          </button>
+          {prestation.validationClient == true && (
+            prestation.validationPrestataire == true && (
+              prestation.noteMoyenne == 0 && (
+                <button className="BoutonNoterPrestation" onClick={noterPresta}>
+                  Noter cette prestation
                 </button>
-                {prestation.validationClient == true && (
-                  prestation.validationPrestataire == true && (
-                    prestation.noteMoyenne == 0 && (
-                      <button className="BoutonNoterPrestation" onClick={noterPresta}>
-                        Noter cette prestation
-                      </button>
-                    )))}
-              </div>
-            </div>
-          </div>
-        )
-      )}
-      {afficherDevis && (
-        <AffichageDevis prestation={prestation} />
-      )}
-      {noterPrestation &&
-        <NoterPrestation prestation={prestation} />
-      }
-    </>
+              )))}
+        </div>
+      </div>
+    </div>
   );
 };
 

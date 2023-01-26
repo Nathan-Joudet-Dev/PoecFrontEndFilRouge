@@ -3,17 +3,17 @@ import Service from "../assets/ApiService";
 import "../styles/cartePrestationPanier.css";
 import { useEffect, useState } from 'react';
 import CreationDevis from './CreationDevis';
+import { useNavigate } from 'react-router-dom';
 
 const CartePrestationsPrestataire = ({ prestation }) => {
 
     const _service = new Service();
+    const _navigate = useNavigate();
 
     const [prestataire, setPrestataire] = useState({});
     const [panier, setPanier] = useState([]);
-    // const [devisEnvoye, setDevisEnvoye] = useState(false);
     const [prestationTerminee, setPrestationTerminee] = useState();
     const [prestationTermineeDesDeuxCotes, setPrestationTermineeDesDeuxCotes] = useState(false);
-    const [afficherCreationDevis, setAfficherCreationDevis] = useState(false);
 
 
     useEffect(() => {
@@ -104,62 +104,57 @@ const CartePrestationsPrestataire = ({ prestation }) => {
      * Affiche le composant de création de devis
      */
     const creerDevis = () => {
-        setAfficherCreationDevis(true);
+
+        localStorage.setItem("idPrestation", prestation.id)
+        _navigate('/creationDevis')
     }
 
     return (
         <>
-            {!afficherCreationDevis && (
-                <>
-                    <div className="cartePrestationPanier">
-                        <div className="imagePrestation">
-                            <img src={prestation.image} alt="Prestation" />
-                        </div>
-                        <div className="infosPrestation">
-                            <div className="FirstRow">
-                                <p className="titrePrestation">{prestation.titre} </p>
-                                <p
-                                    className="EtatPrestation"
-                                    hidden={
-                                        prestation.etat === "Disponible" ||
-                                        prestation.etat === "En attente de validation du panier"
-                                    }
-                                    style={{ backgroundColor: getCouleur(prestation.etat) }}
-                                >
-                                    {prestation.etat}
-                                </p>
-                            </div>
-                            <p className="prixPrestation">{prestation.tauxHoraires} €</p>
-                            <div className="descriptionPrestation">{prestation.description}</div>
-                            {!prestationTerminee && (
-                                <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"} >
-                                    Terminer cette Prestation
-                                </button>
-                            )}
-                            {prestationTerminee && (
-                                <button className="terminer">Prestation Terminée</button>
-                            )}
-                            <div className='boutonsAccepterRefuser'>
-                                <button className='accepterService' onClick={accepterService} hidden={prestation.etat != "Demande envoyée"} >
-                                    Accepter
-                                </button>
-                                <button className='refuserService' onClick={refuserService} hidden={prestation.etat != "Demande envoyée"} >
-                                    Refuser
-                                </button>
-                                <button className='accepterService' onClick={creerDevis} hidden={prestation.etat != "En attente du devis"}>
-                                    Créer le devis
-                                </button>
-                                <button className='accepterService' hidden={prestation.etat != "En attente d'acceptation du devis"}>
-                                    Devis envoyé
-                                </button>
-                            </div>
-                        </div>
+            <div className="cartePrestationPanier">
+                <div className="imagePrestation">
+                    <img src={prestation.image} alt="Prestation" />
+                </div>
+                <div className="infosPrestation">
+                    <div className="FirstRow">
+                        <p className="titrePrestation">{prestation.titre} </p>
+                        <p
+                            className="EtatPrestation"
+                            hidden={
+                                prestation.etat === "Disponible" ||
+                                prestation.etat === "En attente de validation du panier"
+                            }
+                            style={{ backgroundColor: getCouleur(prestation.etat) }}
+                        >
+                            {prestation.etat}
+                        </p>
                     </div>
-                </>
-            )}
-            {afficherCreationDevis && (
-                <CreationDevis prestation={prestation} />
-            )}
+                    <p className="prixPrestation">{prestation.tauxHoraires} €</p>
+                    <div className="descriptionPrestation">{prestation.description}</div>
+                    {!prestationTerminee && (
+                        <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"} >
+                            Terminer cette Prestation
+                        </button>
+                    )}
+                    {prestationTerminee && (
+                        <button className="terminer">Prestation Terminée</button>
+                    )}
+                    <div className='boutonsAccepterRefuser'>
+                        <button className='accepterService' onClick={accepterService} hidden={prestation.etat != "Demande envoyée"} >
+                            Accepter
+                        </button>
+                        <button className='refuserService' onClick={refuserService} hidden={prestation.etat != "Demande envoyée"} >
+                            Refuser
+                        </button>
+                        <button className='accepterService' onClick={creerDevis} hidden={prestation.etat != "En attente du devis"}>
+                            Créer le devis
+                        </button>
+                        <button className='accepterService' hidden={prestation.etat != "En attente d'acceptation du devis"}>
+                            Devis envoyé
+                        </button>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
