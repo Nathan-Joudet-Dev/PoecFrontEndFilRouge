@@ -58,7 +58,7 @@ const NoterPrestation = ({ prestation }) => {
 
             await _service.noterPrestation(prestationNotee);
             alert("Merci d'avoir noté cette prestation !")
-            window.location.reload();
+            _navigate(-1);
         }
     };
 
