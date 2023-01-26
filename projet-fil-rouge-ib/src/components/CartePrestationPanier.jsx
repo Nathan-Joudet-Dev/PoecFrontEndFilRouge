@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/cartePrestationPanier.css";
 import Service from "../assets/ApiService";
 import NoterPrestation from "./NoterPrestation";
+import AffichageDevis from "./AffichageDevis";
 
 const CartePrestationPanier = ({ prestation }) => {
   const _service = new Service();
@@ -10,6 +11,7 @@ const CartePrestationPanier = ({ prestation }) => {
   const [prestationTerminee, setPrestationTerminee] = useState();
   const [prestationTermineeDesDeuxCotes, setPrestationTermineeDesDeuxCotes] = useState(false);
   const [noterPrestation, setNoterPrestation] = useState(false);
+  const [afficherDevis, setAfficherDevis] = useState(false);
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -46,30 +48,33 @@ const CartePrestationPanier = ({ prestation }) => {
     }
   };
 
-  const Valider = async () => {
+  /**
+   * Valide la prestation côté client, puis vérifie si le prestataire a également validé la prestation
+   */
+  const ValiderFinPrestation = async () => {
     prestation.validationClient = true;
     await _service.modifierPrestations(prestation.id, prestation);
     terminerPrestation();
     verifierEtatPrestation();
-    // window.location.reload();
   };
 
-  const accepterDevis = async () => {
-    prestation.etat = "En Cours";
-    await _service.modifierPrestations(prestation.id, prestation);
-    window.location.reload();
+  /**
+   * Affiche le devis
+   */
+  const consulterDevis = async () => {
+    setAfficherDevis(true);
   };
 
-  const refuserDevis = async () => {
-    prestation.etat = "Refusée";
-    await _service.modifierPrestations(prestation.id, prestation);
-    window.location.reload();
-  };
-
+  /**
+   * Change le state pour actualiser la page
+   */
   const terminerPrestation = () => {
     setPrestationTerminee(true);
   }
 
+  /**
+   * Vérifie si la fin de la prestation a été validée des 2 côtés
+   */
   const verifierEtatPrestation = async () => {
     const prestationAverifier = await _service.recupererPrestationById(prestation.id);
     if (prestationAverifier.validationClient == true && prestationAverifier.validationPrestataire == true) {
@@ -79,60 +84,68 @@ const CartePrestationPanier = ({ prestation }) => {
     }
   }
 
+  /**
+   * Affiche le composant pour noter la prestation
+   */
   const noterPresta = async () => {
     setNoterPrestation(true);
   }
 
   return (
     <>
-      {!noterPrestation &&
-        <div className="cartePrestationPanier">
-          <div className="imagePrestation">
-            <img src={prestation.image} alt="Prestation" />
-          </div>
-          <div className="infosPrestation">
-            <div className="FirstRow">
-              <p className="titrePrestation">{prestation.titre} </p>
-              <p
-                className="EtatPrestation"
-                hidden={
-                  prestation.etat === "Disponible" ||
-                  prestation.etat === "En attente de validation du panier"
-                }
-                style={{ backgroundColor: getCouleur(prestation.etat) }}
-              >
-                {prestation.etat}
-              </p>
-              <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
-                Evaluer cette Prestation{" "}
-              </p>
+      {!noterPrestation && (
+        !afficherDevis && (
+          <div className="cartePrestationPanier">
+            <div className="imagePrestation">
+              <img src={prestation.image} alt="Prestation" />
             </div>
-            <p className="prixPrestation">{prestation.tauxHoraires} €</p>
-            <div className="descriptionPrestation">{prestation.description}</div>
-            {!prestationTerminee && (
-              <button className="terminer" onClick={Valider}>Terminer cette Prestation</button>
-            )}
-            {prestationTerminee && (
-              <button className="terminer">Prestation Terminée</button>
-            )}
-            <div className='boutonsAccepterRefuser'>
-              <button className='accepterService' onClick={accepterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
-                Accepter devis
-              </button>
-              <button className='refuserService' onClick={refuserDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
-                Refuser devis
-              </button>
-              {prestation.validationClient == true && (
-                prestation.validationPrestataire == true && (
-                  prestation.noteMoyenne == 0 && (
-                    <button className="BoutonNoterPrestation" onClick={noterPresta}>
-                      Noter cette prestation
-                    </button>
-                  )))}
+            <div className="infosPrestation">
+              <div className="FirstRow">
+                <p className="titrePrestation">{prestation.titre} </p>
+                <p
+                  className="EtatPrestation"
+                  hidden={
+                    prestation.etat === "Disponible" ||
+                    prestation.etat === "En attente de validation du panier"
+                  }
+                  style={{ backgroundColor: getCouleur(prestation.etat) }}
+                >
+                  {prestation.etat}
+                </p>
+                <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
+                  Evaluer cette Prestation{" "}
+                </p>
+              </div>
+
+              {prestation.devis == {} && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
+              {prestation.devis != {} && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
+
+              <div className="descriptionPrestation">{prestation.description}</div>
+              {!prestationTerminee && (
+                <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"}>Terminer cette Prestation</button>
+              )}
+              {prestationTerminee && (
+                <button className="terminer">Prestation Terminée</button>
+              )}
+              <div className='boutonsAccepterRefuser'>
+                <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
+                  Consulter le devis
+                </button>
+                {prestation.validationClient == true && (
+                  prestation.validationPrestataire == true && (
+                    prestation.noteMoyenne == 0 && (
+                      <button className="BoutonNoterPrestation" onClick={noterPresta}>
+                        Noter cette prestation
+                      </button>
+                    )))}
+              </div>
             </div>
           </div>
-        </div>
-      }
+        )
+      )}
+      {afficherDevis && (
+        <AffichageDevis prestation={prestation} />
+      )}
       {noterPrestation &&
         <NoterPrestation prestation={prestation} />
       }
