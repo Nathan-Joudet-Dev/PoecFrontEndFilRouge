@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Service from '../assets/ApiService';
 import Devis from '../models/devis';
 import '../styles/creationDevis.css';
+import { useNavigate } from 'react-router-dom';
 
 const CreationDevis = ({ prestation }) => {
 
     const _service = new Service();
+    const _navigate = useNavigate();
 
     const [detailMateriel, setDetailMateriel] = useState('')
     const [coutMateriel, setCoutMateriel] = useState(0)
@@ -24,7 +26,8 @@ const CreationDevis = ({ prestation }) => {
         prestation.etat = "En attente d'acceptation du devis";
 
         await _service.modifierPrestations(prestation.id, prestation);
-        window.location.reload();
+
+        _navigate(-1);
     }
 
     /**
