@@ -150,6 +150,19 @@ export default class Service {
   }
 
   /**
+   * Récupère la prestation correspondant à l'id
+   * @param {number} id 
+   * @returns La prestation correspondant à l'id
+   */
+  async recupererPrestationById(id) {
+    const response = await this.recupererPrestations();
+    const prestation = await response.find(
+      (prestation) => prestation.id === id
+    );
+    return prestation;
+  }
+
+  /**
    * Récupère la liste des prestations disponibles
    * @returns La liste des prestations disponibles
    */
@@ -190,13 +203,13 @@ export default class Service {
   /**
    * Modifie une prestation
    * @param {number} id L'id de la prestation à modifier
-   * @param {string | number | boolean} informations Les informations à modifier (etat, validationPrestataire, validationClient, noteQualiteGlobale, noteCommunication, noteDossierTechnique, noteExpertise, noteMoyenne)
+   * @param {Prestations} prestation La prestation à modifier
    * @returns La prestation modifiée
    */
-  async modifierPrestations(id, informations) {
-    const response = await axios.patch(
+  async modifierPrestations(id, prestation) {
+    const response = await axios.put(
       _url + `/prestations/${id}`,
-      informations
+      prestation
     );
     const prestationModifiee = response.data;
     return prestationModifiee;
