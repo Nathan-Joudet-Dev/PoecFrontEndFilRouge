@@ -8,36 +8,16 @@ import AjoutPrestations from '../pages/AjoutPrestations';
 import PanierClient from '../pages/PanierClient';
 import AccueilPrestataire from '../pages/AccueilPrestataire';
 import CreationDuDevis from '../pages/CreationDuDevis';
+import AffichageDuDevis from '../pages/AffichageDuDevis';
+import NoterLaPrestation from '../pages/NoterLaPrestation';
 
 // nathan
-
-
-
-
-
-
-
 
 
 // corentin
 
 
-
-
-
-
-
-
-
 // benjamin
-
-
-
-
-
-
-
-
 
 
 //
@@ -50,6 +30,8 @@ const Router = () => {
                 <Route path='/inscriptionSuite' element={<InscriptionSuite />} />
                 <Route path='/ajoutPrestation' element={<AjoutPrestations />} />
                 <Route path='/client' element={<AccueilClient />} />
+                <Route path='/affichageDevis' element={<AffichageDuDevis />} />
+                <Route path='/noterPrestation' element={<NoterLaPrestation />} />
                 <Route path='/panierClient' element={<PanierClient />} />
                 <Route path='/prestataire' element={<AccueilPrestataire />} />
                 <Route path='/creationDevis' element={<CreationDuDevis />} />
