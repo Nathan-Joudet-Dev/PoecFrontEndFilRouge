@@ -19,6 +19,7 @@ export default class Prestations {
   prestataire;
   image;
   type;
+  devis;
 
   // Contructeur
 
@@ -39,5 +40,6 @@ export default class Prestations {
     this.prestataire = prestataire;
     this.image = image;
     this.type = type;
+    this.devis = {};
   }
 }
