@@ -1,13 +1,13 @@
 import React from 'react';
-import HeaderPrestaEtAdmin from '../components/HeaderPrestaEtAdmin';
+import HeaderSimple from '../components/HeaderSimple';
 import AffichageDevis from '../components/AffichageDevis';
 import Service from '../assets/ApiService';
 import { useEffect, useState } from 'react';
 
 const AffichageDuDevis = () => {
 
-    const [prestataire, setPrestataire] = useState({});
-    const [prestation, setPrestation] = useState([]);
+    const [client, setClient] = useState({});
+    const [prestation, setPrestation] = useState({});
 
     const _service = new Service();
 
@@ -17,8 +17,8 @@ const AffichageDuDevis = () => {
 
         // Récupère le prestataire actuellement connecté et le devis correspondant à la prestation
         async function fetchDatas(id, idPrestation) {
-            const prestataireTmp = await _service.recupererPrestataireById(id);
-            setPrestataire(prestataireTmp);
+            const clientTmp = await _service.recupererUtilisateurById(id);
+            setClient(clientTmp);
 
             const devisTmp = await _service.recupererPrestationById(idPrestation);
             setPrestation(devisTmp);
@@ -28,7 +28,7 @@ const AffichageDuDevis = () => {
 
     return (
         <>
-            <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' boutonAjouter={true} />
+            <HeaderSimple />
             <AffichageDevis prestation={prestation} />
         </>
     );
