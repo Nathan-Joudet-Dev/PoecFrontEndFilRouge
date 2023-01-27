@@ -113,10 +113,17 @@ const CartePrestationPanier = ({ prestation }) => {
           <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
             Evaluer cette Prestation{" "}
           </p>
+          {prestation.validationClient == true && (
+            prestation.validationPrestataire == true && (
+              prestation.noteMoyenne == 0 && (
+                <button className="Notation" onClick={noterPresta}>
+                  Noter cette prestation
+                </button>
+              )))}
         </div>
 
-        {prestation.devis === {} && <p className="prixPrestation">{prestation.tauxHoraires} test €</p>}
-        {prestation.devis !== {} && <p className="prixPrestation">{prestation.devis.coutTotal} TEST €</p>}
+        {prestation.devis === {} && <p className="prixPrestation">{prestation.tauxHoraires}€</p>}
+        {prestation.devis !== {} && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
 
         <div className="descriptionPrestation">{prestation.description}</div>
         {!prestationTerminee && (
@@ -129,13 +136,7 @@ const CartePrestationPanier = ({ prestation }) => {
           <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
             Consulter le devis
           </button>
-          {prestation.validationClient == true && (
-            prestation.validationPrestataire == true && (
-              prestation.noteMoyenne == 0 && (
-                <button className="BoutonNoterPrestation" onClick={noterPresta}>
-                  Noter cette prestation
-                </button>
-              )))}
+         
         </div>
       </div>
     </div>

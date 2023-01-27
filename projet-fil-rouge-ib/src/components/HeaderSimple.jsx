@@ -40,7 +40,7 @@ const HeaderSimple = () => {
         <div className="Icons">
           <div className="circle">
             <FaUserCircle className="userCircle" />
-            <p>{client.nom} </p>
+            <p className="userName">{client.nom} </p>
           </div>
           <div className="basket">
             <SlBasket className="Basket" />
