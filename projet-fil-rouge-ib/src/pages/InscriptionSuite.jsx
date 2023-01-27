@@ -8,7 +8,6 @@ const InscriptionSuite = () => {
         <div className='inscriptionSuite'>
             <HeaderConnection texte='Inscription' arrow='arrowVisible' />
             <FormulaireInscriptionDeux />
-            <Footer />
         </div>
     );
 };

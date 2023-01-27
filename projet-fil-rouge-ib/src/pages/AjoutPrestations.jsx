@@ -26,7 +26,6 @@ const AjoutPrestations = () => {
         <>
             <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' boutonAjouter={false} />
             <FormAjoutPrestations />
-            <Footer/>
         </>
     );
 };

@@ -31,7 +31,6 @@ const AffichageDuDevis = () => {
         <>
             <HeaderSimple />
             <AffichageDevis prestation={prestation} />
-            <Footer />
         </>
     );
 };

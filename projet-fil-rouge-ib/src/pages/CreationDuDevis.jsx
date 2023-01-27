@@ -31,7 +31,6 @@ const CreationDuDevis = () => {
         <>
             <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' boutonAjouter={true} />
             <CreationDevis prestation={prestation} />
-            <Footer />
         </>
     );
 };

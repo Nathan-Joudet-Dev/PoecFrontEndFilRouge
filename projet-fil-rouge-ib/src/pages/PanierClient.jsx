@@ -41,7 +41,6 @@ const PanierClient = () => {
       </h2>
       {afficherPanier && <Panier />}
       {afficherCommandes && <CommandesClients />}
-      <Footer />
     </>
   );
 };

@@ -8,7 +8,6 @@ const Inscription = () => {
         <div className='inscription'>
             <HeaderConnection texte='Inscription' arrow='arrowVisible' />
             <FormulaireInscription />
-            <Footer />
         </div>
     );
 };
