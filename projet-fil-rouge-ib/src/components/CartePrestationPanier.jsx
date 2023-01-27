@@ -40,7 +40,7 @@ const CartePrestationPanier = ({ prestation }) => {
       case "Prestation Terminée":
         return "#ffd814";
       case "Archivée":
-        return "#333333";
+        return "#999999";
       default:
         return "#FFFFFF";
     }
