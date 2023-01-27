@@ -6,7 +6,6 @@ const AccueilClient = () => {
     return (
         <>
             <SearchbarPrestation />
-            <Footer />
         </>
     );
 };

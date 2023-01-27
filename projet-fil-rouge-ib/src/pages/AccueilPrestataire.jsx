@@ -35,7 +35,6 @@ const AccueilPrestataire = () => {
                     )
                 })
             )}
-            <Footer />
         </>
     );
 };

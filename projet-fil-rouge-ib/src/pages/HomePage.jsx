@@ -9,7 +9,6 @@ const HomePage = () => {
         <div className='homePage'>
             <HeaderConnection texte='Connection' arrow='arrowNonVisible' />
             <FormulaireConnexion />
-            <Footer/>
         </div>
     );
 };

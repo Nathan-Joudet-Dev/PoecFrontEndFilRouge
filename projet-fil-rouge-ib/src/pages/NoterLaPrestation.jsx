@@ -31,7 +31,6 @@ const NoterLaPrestation = () => {
         <>
             <HeaderSimple />
             <NoterPrestation prestation={prestation} />
-            <Footer />
         </>
     );
 };
