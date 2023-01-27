@@ -4,6 +4,7 @@ import Service from '../assets/ApiService';
 import '../styles/panier.css';
 import CartePrestationPanier from './CartePrestationPanier';
 import Prestations from '../models/prestations';
+import CartePrestation from './CartePrestation';
 
 const Panier = () => {
     const _service = new Service();
@@ -63,7 +64,7 @@ const Panier = () => {
                     {panier && (
                         panier.map((prestation) => {
                             return (
-                                <CartePrestationPanier key={prestation.id} prestation={prestation} />
+                                <CartePrestation key={prestation.id} prestation={prestation} boutonSupprimer={true} />
                             )
                         })
                     )}

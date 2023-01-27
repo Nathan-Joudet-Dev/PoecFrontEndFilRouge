@@ -80,6 +80,7 @@ const CartePrestationPanier = ({ prestation }) => {
       prestationAverifier.etat = "Terminée";
       await _service.modifierPrestations(prestationAverifier.id, prestationAverifier);
       setPrestationTermineeDesDeuxCotes(true);
+      window.location.reload();
     }
   }
 
@@ -114,8 +115,8 @@ const CartePrestationPanier = ({ prestation }) => {
           </p>
         </div>
 
-        {prestation.devis == {} && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
-        {prestation.devis != {} && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
+        {prestation.devis === {} && <p className="prixPrestation">{prestation.tauxHoraires} test €</p>}
+        {prestation.devis !== {} && <p className="prixPrestation">{prestation.devis.coutTotal} TEST €</p>}
 
         <div className="descriptionPrestation">{prestation.description}</div>
         {!prestationTerminee && (

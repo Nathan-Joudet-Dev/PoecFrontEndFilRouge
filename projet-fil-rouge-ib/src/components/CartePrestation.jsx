@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import '../styles/cartePrestation.css'
 import Service from '../assets/ApiService';
 
-const CartePrestation = ({ prestation }) => {
+const CartePrestation = ({ prestation, boutonSupprimer }) => {
 
     const _service = new Service();
 
@@ -28,6 +28,12 @@ const CartePrestation = ({ prestation }) => {
         alert('Prestation ajoutée au panier !')
     }
 
+    async function supprimerDuPanier() {
+        await _service.supprimerUnePrestationDuPanier(client, prestation);
+        alert('Prestation supprimée du panier !')
+        window.location.reload();
+    }
+
     return (
         <div className='cartePrestation'>
             <div className='imagePresta' >
@@ -39,8 +45,15 @@ const CartePrestation = ({ prestation }) => {
                 <div className='descriptionPresta'>{prestation.description}</div>
             </div>
             <div className='detailsEtPanier'>
-                <button className='btnDetails'>Détails</button>
-                <button className='btnAjouter' onClick={ajouterAuPanier}>Ajouter au panier</button>
+                {!boutonSupprimer && (
+                    <>
+                        <button className='btnDetails'>Détails</button>
+                        <button className='btnAjouter' onClick={ajouterAuPanier}>Ajouter au panier</button>
+                    </>
+                )}
+                {boutonSupprimer && (
+                    <button className='btnAjouter btnSupprimer' onClick={supprimerDuPanier}>Supprimer du panier</button>
+                )}
             </div>
         </div>
     );
