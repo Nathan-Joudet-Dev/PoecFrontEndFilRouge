@@ -29,36 +29,40 @@ const AffichageDevis = ({ prestation }) => {
     };
 
     return (
-        <div className='affichageDevis'>
-            <h1>Devis pour la prestation</h1>
+        <>
+            {prestation.devis && (
+                <div className='affichageDevis'>
+                    <h1>Devis pour la prestation</h1>
 
-            <p className='titreNomPrestation'>Nom de la prestation</p>
-            <div className='nomPrestation'>{prestation.titre}</div>
+                    <p className='titreNomPrestation'>Nom de la prestation</p>
+                    <div className='nomPrestation'>{prestation.titre}</div>
 
-            <p className='titreDetailMateriel'>Détails du matériel</p>
-            <div className='detailMateriel'> {prestation.devis.detailsMateriel} </div>
+                    <p className='titreDetailMateriel'>Détails du matériel</p>
+                    <div className='detailMateriel'> {prestation.devis.detailsMateriel} </div>
 
-            <div className='divTauxEtTotalDevis' >
-                <h3>Taux Horaire (€)</h3>
-                <div className='quatreDivDevis'> {prestation.tauxHoraires} </div>
+                    <div className='divTauxEtTotalDevis' >
+                        <h3>Taux Horaire (€)</h3>
+                        <div className='quatreDivDevis'> {prestation.tauxHoraires} </div>
 
-                <h3>Coût du matériel (€)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.coutMateriel} </div>
+                        <h3>Coût du matériel (€)</h3>
+                        <div className='quatreDivDevis'> {prestation.devis.coutMateriel} </div>
 
-                <h3>Temps total estimé (h)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.tempsEstime} </div>
+                        <h3>Temps total estimé (h)</h3>
+                        <div className='quatreDivDevis'> {prestation.devis.tempsEstime} </div>
 
-                <h3>Coût total estimé (€)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.coutTotal} </div>
-            </div>
+                        <h3>Coût total estimé (€)</h3>
+                        <div className='quatreDivDevis'> {prestation.devis.coutTotal} </div>
+                    </div>
 
-            <button className='accepterService btnDevis' onClick={accepterDevis}>
-                Accepter devis
-            </button>
-            <button className='refuserService btnDevis' onClick={refuserDevis}>
-                Refuser devis
-            </button>
-        </div>
+                    <button className='accepterService btnDevis' onClick={accepterDevis}>
+                        Accepter devis
+                    </button>
+                    <button className='refuserService btnDevis' onClick={refuserDevis}>
+                        Refuser devis
+                    </button>
+                </div>
+            )}
+        </>
     );
 };
 
