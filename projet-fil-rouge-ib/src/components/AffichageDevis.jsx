@@ -36,20 +36,20 @@ const AffichageDevis = ({ prestation }) => {
             <div className='nomPrestation'>{prestation.titre}</div>
 
             <p className='titreDetailMateriel'>Détails du matériel</p>
-            <div className='detailMateriel'> {prestation.devis.detailsMateriel} </div>
+            <div className='detailMateriel'> {prestation.devis && (prestation.devis.detailsMateriel)} </div>
 
             <div className='divTauxEtTotalDevis' >
                 <h3>Taux Horaire (€)</h3>
                 <div className='quatreDivDevis'> {prestation.tauxHoraires} </div>
 
                 <h3>Coût du matériel (€)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.coutMateriel} </div>
+                <div className='quatreDivDevis'> {prestation.devis && (prestation.devis.coutMateriel)} </div>
 
                 <h3>Temps total estimé (h)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.tempsEstime} </div>
+                <div className='quatreDivDevis'> {prestation.devis && (prestation.devis.tempsEstime)} </div>
 
                 <h3>Coût total estimé (€)</h3>
-                <div className='quatreDivDevis'> {prestation.devis.coutTotal} </div>
+                <div className='quatreDivDevis'> {prestation.devis && (prestation.devis.coutTotal)} </div>
             </div>
 
             <button className='accepterService btnDevis' onClick={accepterDevis}>

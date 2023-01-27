@@ -72,6 +72,12 @@ select {
   cursor: pointer;
 }
 
+
+.userName{
+  font-size: 2em;
+  font-weight: bold;
+}
+
 .basket {
   font-size: 3em;
   cursor: pointer;
