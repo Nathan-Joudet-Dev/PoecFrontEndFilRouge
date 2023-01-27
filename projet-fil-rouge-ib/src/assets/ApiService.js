@@ -112,6 +112,22 @@ export default class Service {
   }
 
   /**
+   * Supprime une prestation du panier de l'utilisateur
+   * @param {Utilisateurs} client 
+   * @param {Prestations} prestationASupprimer 
+   * @returns L'utilisateur avec son panier modifié
+   */
+  async supprimerUnePrestationDuPanier(client, prestationASupprimer) {
+    const utilisateur = await this.recupererUtilisateurById(client.id);
+    const prestaTmp = await utilisateur.panier.find(prestation => prestation.id === prestationASupprimer.id);
+    const index = await utilisateur.panier.indexOf(prestaTmp);
+    utilisateur.panier.splice(index, 1);
+    const response = await axios.put(_url + `/utilisateurs/${client.id}`, utilisateur);
+    const utilisateurModifie = response.data;
+    return utilisateurModifie;
+  }
+
+  /**
    * Récupère le panier du client
    * @param {Utilisateurs} client Le client
    * @returns Le panier du client
