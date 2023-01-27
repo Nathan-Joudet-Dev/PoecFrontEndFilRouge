@@ -10,6 +10,7 @@ import AccueilPrestataire from '../pages/AccueilPrestataire';
 import CreationDuDevis from '../pages/CreationDuDevis';
 import AffichageDuDevis from '../pages/AffichageDuDevis';
 import NoterLaPrestation from '../pages/NoterLaPrestation';
+import AccueilAdmin from '../pages/AccueilAdmin';
 
 // nathan
 
@@ -35,6 +36,7 @@ const Router = () => {
                 <Route path='/panierClient' element={<PanierClient />} />
                 <Route path='/prestataire' element={<AccueilPrestataire />} />
                 <Route path='/creationDevis' element={<CreationDuDevis />} />
+                <Route path='/admin' element={<AccueilAdmin />} />
                 <Route path='/nathan' element='#' />
                 <Route path='/corentin' element='#' />
                 <Route path='/benjamin' element='#' />

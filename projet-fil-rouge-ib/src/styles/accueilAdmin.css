@@ -1,0 +1,67 @@
+.navbarAdmin {
+    background-color: #2489FF;
+    height: 5vh;
+    width: 95%;
+    margin: 1% auto 0 auto;
+    border-radius: 10px 10px 0 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnNavbarAdmin {
+    cursor: pointer;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0 2%;
+    border-radius: 5px;
+    border: none;
+}
+
+.prestationsMap {
+    width: 94%;
+    margin: 1% auto 0 auto;
+}
+
+.Select {
+    height: 6vh;
+    margin-top: 2%;
+}
+
+.nombreDePrestations {
+    height: 30vh;
+    width: 95%;
+    margin: 1% auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerNombrePrestations {
+    height: 30vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divNombrePrestations {
+    background-color: #D9D9D9;
+    height: 50%;
+    width: 37%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    font-weight: bold;
+    border-radius: 100px;
+    margin-bottom: 1%;
+}
+
+div>b {
+    text-decoration: underline;
+}

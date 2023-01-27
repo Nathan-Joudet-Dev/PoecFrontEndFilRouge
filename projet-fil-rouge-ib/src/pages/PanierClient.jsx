@@ -17,8 +17,8 @@ const PanierClient = () => {
    * Affiche le panier du client
    */
   function affichagePanier() {
-    setAfficherPanier(!afficherPanier);
-    setAfficherCommandes(!afficherCommandes);
+    setAfficherPanier(true);
+    setAfficherCommandes(false);
     setPanierClassName("affichageSpanSelected");
     setCommandesClassName("affichageSpan");
   }
@@ -27,8 +27,8 @@ const PanierClient = () => {
    * Affiche les commandes du client
    */
   function affichageCommandes() {
-    setAfficherPanier(!afficherPanier);
-    setAfficherCommandes(!afficherCommandes);
+    setAfficherPanier(false);
+    setAfficherCommandes(true);
     setPanierClassName("affichageSpan");
     setCommandesClassName("affichageSpanSelected");
   }
