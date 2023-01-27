@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService';
 import '../styles/accueilAdmin.css';
 import CartePrestationsAdmin from '../components/CartePrestationsAdmin';
+import NombreDePrestations from '../components/NombreDePrestations';
 
 const AccueilAdmin = () => {
 
@@ -16,10 +17,6 @@ const AccueilAdmin = () => {
 
     const [prestataireRecherche, setPrestataireRecherche] = useState('');
 
-    const [nombreDePrestationsMinimum, setNombreDePrestationsMinimum] = useState(0);
-    const [nombreDePrestationsMoyen, setNombreDePrestationsMoyen] = useState(0);
-    const [nombreDePrestationsMaximum, setNombreDePrestationsMaximum] = useState(0);
-
     const _service = new Service();
 
     useEffect(() => {
@@ -29,9 +26,11 @@ const AccueilAdmin = () => {
             // Récupère l'admin actuellement connecté
             const adminTmp = await _service.recupererUtilisateurById(id);
             setAdmin(adminTmp);
+
             // Récupère les prestations en cours, terminées ou archivées
             const prestationsTmp = await _service.recupererPrestationsAdmin();
             setPrestations(prestationsTmp);
+
             // Récupère les prestations en état "Disponible"
             const prestationsDisponiblesTmp = await _service.recupererPrestationsDisponibles();
             setPrestationsDisponibles(prestationsDisponiblesTmp);
@@ -86,28 +85,9 @@ const AccueilAdmin = () => {
                         <option value="Nature et Création" label="Nature et Création"></option>
                     </select>
 
-                    <div className='nombreDePrestations'>
-                        <div className='containerNombrePrestations'>
-                            <div className='divNombrePrestations'>
-                                1
-                            </div>
-                            <div>Prestations <div><b>minimum</b></div> </div>
-                        </div>
-
-                        <div className='containerNombrePrestations'>
-                            <div className='divNombrePrestations'>
-                                2
-                            </div>
-                            <div>Prestations <div><b>en moyenne</b></div> </div>
-                        </div>
-
-                        <div className='containerNombrePrestations'>
-                            <div className='divNombrePrestations'>
-                                2
-                            </div>
-                            <div>Prestations <div><b>maximum</b></div> </div>
-                        </div>
-                    </div>
+                    {prestationsDisponibles && (
+                        <NombreDePrestations listePrestations={prestationsDisponibles} />
+                    )}
 
                     <div className='prestationsMap'>
                         {prestationsDisponibles && (

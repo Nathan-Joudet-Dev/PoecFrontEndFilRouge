@@ -184,7 +184,7 @@ export default class Service {
    */
   async recupererPrestationsDisponibles() {
     const response = await this.recupererPrestations();
-    const prestationsDisponibles = response.filter(
+    const prestationsDisponibles = await response.filter(
       (prestation) => prestation.etat === "Disponible"
     );
     return prestationsDisponibles;
@@ -194,14 +194,13 @@ export default class Service {
    * Récupère la liste des prestations en cours, terminées ou archivées
    * @returns La liste des prestations en cours, terminées ou archivées
    */
-  async recupererPrestationsEnCoursOuTerminees() {
+  async recupererPrestationsAdmin() {
     const response = await this.recupererPrestations();
     const prestationsEnCoursOuTerminees = response.filter(
       (prestation) =>
-        prestation.etat === "En cours" ||
-        prestation.etat === "Terminée" ||
-        prestation.etat === "Archivée"
-    );
+        prestation.etat == "En cours" ||
+        prestation.etat == "Terminée" ||
+        prestation.etat == "Archivée");
     return prestationsEnCoursOuTerminees;
   }
 

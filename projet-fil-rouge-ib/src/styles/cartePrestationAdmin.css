@@ -1,0 +1,14 @@
+.informationsAdmin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2%;
+}
+
+.informationsAdmin>p {
+    font-size: 1.2em;
+}
+
+.informationsAdmin>p>b {
+    text-decoration: underline;
+}

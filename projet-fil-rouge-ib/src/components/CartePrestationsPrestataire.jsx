@@ -97,6 +97,7 @@ const CartePrestationsPrestataire = ({ prestation }) => {
             prestationAverifier.etat = "Terminée";
             await _service.modifierPrestations(prestationAverifier.id, prestationAverifier);
             setPrestationTermineeDesDeuxCotes(true);
+            window.location.reload();
         }
     }
 
