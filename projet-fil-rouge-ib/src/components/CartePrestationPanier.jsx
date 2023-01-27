@@ -115,8 +115,8 @@ const CartePrestationPanier = ({ prestation }) => {
           </p>
         </div>
 
-        {prestation.devis === {} && <p className="prixPrestation">{prestation.tauxHoraires} test €</p>}
-        {prestation.devis !== {} && <p className="prixPrestation">{prestation.devis.coutTotal} TEST €</p>}
+        {!prestation.devis.coutTotal && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
+        {prestation.devis.coutTotal && <p className="prixPrestation">{prestation.devis.coutTotal} €</p>}
 
         <div className="descriptionPrestation">{prestation.description}</div>
         {!prestationTerminee && (
