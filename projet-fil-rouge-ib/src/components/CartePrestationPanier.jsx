@@ -40,7 +40,7 @@ const CartePrestationPanier = ({ prestation }) => {
       case "Prestation Terminée":
         return "#ffd814";
       case "Archivée":
-        return "#333333";
+        return "#999999";
       default:
         return "#FFFFFF";
     }
@@ -113,6 +113,13 @@ const CartePrestationPanier = ({ prestation }) => {
           <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
             Evaluer cette Prestation{" "}
           </p>
+          {prestation.validationClient == true && (
+            prestation.validationPrestataire == true && (
+              prestation.noteMoyenne == 0 && (
+                <button className="Notation" onClick={noterPresta}>
+                  Noter cette prestation
+                </button>
+              )))}
         </div>
 
         {!prestation.devis.coutTotal && <p className="prixPrestation">{prestation.tauxHoraires} €</p>}
@@ -129,13 +136,7 @@ const CartePrestationPanier = ({ prestation }) => {
           <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
             Consulter le devis
           </button>
-          {prestation.validationClient == true && (
-            prestation.validationPrestataire == true && (
-              prestation.noteMoyenne == 0 && (
-                <button className="BoutonNoterPrestation" onClick={noterPresta}>
-                  Noter cette prestation
-                </button>
-              )))}
+         
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import HeaderSimple from '../components/HeaderSimple';
 import AffichageDevis from '../components/AffichageDevis';
 import Service from '../assets/ApiService';
 import { useEffect, useState } from 'react';
+import Footer from '../components/footer';
 
 const AffichageDuDevis = () => {
 
@@ -30,6 +31,7 @@ const AffichageDuDevis = () => {
         <>
             <HeaderSimple />
             <AffichageDevis prestation={prestation} />
+            <Footer />
         </>
     );
 };

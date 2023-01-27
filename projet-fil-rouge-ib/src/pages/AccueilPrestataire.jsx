@@ -3,6 +3,7 @@ import HeaderPrestaEtAdmin from '../components/HeaderPrestaEtAdmin';
 import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService';
 import CartePrestationsPrestataire from '../components/CartePrestationsPrestataire';
+import Footer from '../components/footer';
 
 const AccueilPrestataire = () => {
 
@@ -34,6 +35,7 @@ const AccueilPrestataire = () => {
                     )
                 })
             )}
+            <Footer />
         </>
     );
 };

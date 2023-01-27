@@ -3,6 +3,7 @@ import HeaderSimple from "../components/HeaderSimple";
 import Panier from "../components/Panier";
 import CommandesClients from "../components/CommandesClients";
 import { useState } from "react";
+import Footer from "../components/footer";
 
 const PanierClient = () => {
 
@@ -40,6 +41,7 @@ const PanierClient = () => {
       </h2>
       {afficherPanier && <Panier />}
       {afficherCommandes && <CommandesClients />}
+      <Footer />
     </>
   );
 };
