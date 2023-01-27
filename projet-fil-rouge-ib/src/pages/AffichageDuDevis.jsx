@@ -3,6 +3,7 @@ import HeaderPrestaEtAdmin from '../components/HeaderPrestaEtAdmin';
 import AffichageDevis from '../components/AffichageDevis';
 import Service from '../assets/ApiService';
 import { useEffect, useState } from 'react';
+import Footer from '../components/footer';
 
 const AffichageDuDevis = () => {
 
@@ -30,6 +31,7 @@ const AffichageDuDevis = () => {
         <>
             <HeaderPrestaEtAdmin nom={prestataire.nomSociete} arrow='arrowVisible' boutonAjouter={true} />
             <AffichageDevis prestation={prestation} />
+            <Footer />
         </>
     );
 };
