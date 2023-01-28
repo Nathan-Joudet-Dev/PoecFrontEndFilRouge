@@ -66,6 +66,13 @@ const NoterPrestation = ({ prestation }) => {
         <>
             <div className='noterPrestation'>
                 <h1 className='titreEvaluerPrestation'>EVALUER CETTE PRESTATION</h1>
+                <div className='notes'>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                </div>
                 <div className='divQualiteGlobale'>
                     <label className='labelNotation' htmlFor="qualiteGlobale">1. La qualité globale de la prestation</label>
                     <input className='inputNotation' type="radio" name="qualiteGlobale" value='1' onChange={noteQualiteGlobale} />
