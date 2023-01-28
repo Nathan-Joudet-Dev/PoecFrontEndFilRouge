@@ -71,3 +71,16 @@ input[type="radio"]:checked {
     border-radius: 10px;
     padding: 0.7% 1.7%;
 }
+
+.notes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -1%;
+    margin-left: 51%;
+}
+
+.notes>p {
+    font-size: 1.4em;
+    margin-right: 7.5%;
+}
