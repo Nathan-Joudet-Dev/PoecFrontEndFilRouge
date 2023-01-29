@@ -1,7 +1,6 @@
 import React from 'react';
 import FormulaireInscriptionDeux from '../components/FormulaireInscriptionDeux';
 import HeaderConnection from '../components/HeaderConnection';
-import Footer from '../components/footer';
 
 const InscriptionSuite = () => {
     return (

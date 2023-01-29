@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../components/footer';
 import FormulaireInscription from '../components/FormulaireInscription';
 import HeaderConnection from '../components/HeaderConnection';
 

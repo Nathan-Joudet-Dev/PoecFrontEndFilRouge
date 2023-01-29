@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService';
 import '../styles/panier.css';
-import CartePrestationPanier from './CartePrestationPanier';
 import Prestations from '../models/prestations';
 import CartePrestation from './CartePrestation';
 

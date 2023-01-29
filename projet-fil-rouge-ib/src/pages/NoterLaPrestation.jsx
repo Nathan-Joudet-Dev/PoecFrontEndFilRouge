@@ -3,7 +3,6 @@ import HeaderSimple from '../components/HeaderSimple';
 import NoterPrestation from '../components/NoterPrestation'
 import Service from '../assets/ApiService';
 import { useEffect, useState } from 'react';
-import Footer from '../components/footer';
 
 const NoterLaPrestation = () => {
 
