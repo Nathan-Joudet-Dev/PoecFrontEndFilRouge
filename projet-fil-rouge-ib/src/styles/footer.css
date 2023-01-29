@@ -11,13 +11,11 @@
     bottom: 0;
     min-width: 97%;
     width: 1fr;
-    height: 5vh;
+    height: 4vh;
 }
 
-
-
-.linkedin{
-    color:#FFFFFF;
+.linkedin {
+    color: #FFFFFF;
     margin-left: 5px;
     margin-right: 5px;
 }

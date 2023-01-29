@@ -231,6 +231,56 @@ export default class Service {
   }
 
   /**
+   * Valide la fin d'une prestation côté client.
+   * Si le prestataire a également validé la fin de la prestation, alors l'état de la prestation passe à "Terminée"
+   * @param {Prestation} prestation 
+   * @returns La prestation modifiée
+   */
+  async validerFinPrestationClient(prestation) {
+    const response = await axios.patch(
+      _url + `/prestations/${prestation.id}`,
+      { validationClient: true }
+    );
+    const prestationModifiee = await response.data;
+
+    if (prestationModifiee.validationPrestataire === true) {
+      const response = await axios.patch(
+        _url + `/prestations/${prestation.id}`,
+        { etat: "Terminée" }
+      );
+      const prestationModifieeDeux = response.data;
+      return prestationModifieeDeux;
+    } else {
+      return prestationModifiee;
+    }
+  }
+
+  /**
+   * Valide la fin d'une prestation côté prestataire.
+   * Si le client a également validé la fin de la prestation, alors l'état de la prestation passe à "Terminée"
+   * @param {Prestations} prestation 
+   * @returns La prestation modifiée
+   */
+  async validerFinPrestationPrestataire(prestation) {
+    const response = await axios.patch(
+      _url + `/prestations/${prestation.id}`,
+      { validationPrestataire: true }
+    );
+    const prestationModifiee = response.data;
+
+    if (prestationModifiee.validationClient === true) {
+      const response = await axios.patch(
+        _url + `/prestations/${prestation.id}`,
+        { etat: "Terminée" }
+      );
+      const prestationModifieeDeux = response.data;
+      return prestationModifieeDeux;
+    } else {
+      return prestationModifiee;
+    }
+  }
+
+  /**
    * Ajoute les notes pour la prestation
    * @param {Prestations} prestationNotee La prestation à noter
    * @returns La prestation après modifications

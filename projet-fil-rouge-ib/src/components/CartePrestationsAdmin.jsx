@@ -27,7 +27,7 @@ const CartePrestationsAdmin = ({ prestation, informationsAdmin, coutTotal }) => 
             case "Prestation Terminée":
                 return "#ffd814";
             case "Archivée":
-                return "#333333";
+                return "#999999";
             default:
                 return "#FFFFFF";
         }
@@ -70,6 +70,7 @@ const CartePrestationsAdmin = ({ prestation, informationsAdmin, coutTotal }) => 
                     >
                         {prestation.etat}
                     </p>
+                    <span className="spanNoteMoyenne" hidden={prestation.etat != "Archivée"} >Note moyenne : {prestation.noteMoyenne}/5 </span>
                 </div>
                 {coutTotal && (
                     <p className="prixPrestation">{prestation.devis.coutTotal} €</p>

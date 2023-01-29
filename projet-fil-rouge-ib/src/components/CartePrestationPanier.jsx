@@ -8,8 +8,7 @@ const CartePrestationPanier = ({ prestation }) => {
   const _navigate = useNavigate();
 
   const [client, setClient] = useState({});
-  const [prestationTerminee, setPrestationTerminee] = useState();
-  const [prestationTermineeDesDeuxCotes, setPrestationTermineeDesDeuxCotes] = useState(false);
+  const [prestationTerminee, setPrestationTerminee] = useState(false);
 
   useEffect(() => {
     const id = localStorage.getItem("id");
@@ -51,9 +50,9 @@ const CartePrestationPanier = ({ prestation }) => {
    */
   const ValiderFinPrestation = async () => {
     prestation.validationClient = true;
-    await _service.modifierPrestations(prestation.id, prestation);
+    await _service.validerFinPrestationClient(prestation);
     terminerPrestation();
-    verifierEtatPrestation();
+    window.location.reload();
   };
 
   /**
@@ -69,19 +68,6 @@ const CartePrestationPanier = ({ prestation }) => {
    */
   const terminerPrestation = () => {
     setPrestationTerminee(true);
-  }
-
-  /**
-   * Vérifie si la fin de la prestation a été validée des 2 côtés
-   */
-  const verifierEtatPrestation = async () => {
-    const prestationAverifier = await _service.recupererPrestationById(prestation.id);
-    if (prestationAverifier.validationClient == true && prestationAverifier.validationPrestataire == true) {
-      prestationAverifier.etat = "Terminée";
-      await _service.modifierPrestations(prestationAverifier.id, prestationAverifier);
-      setPrestationTermineeDesDeuxCotes(true);
-      window.location.reload();
-    }
   }
 
   /**
@@ -110,6 +96,7 @@ const CartePrestationPanier = ({ prestation }) => {
           >
             {prestation.etat}
           </p>
+          <span className="spanNoteMoyenne" hidden={prestation.etat != "Archivée"} >Note moyenne : {prestation.noteMoyenne}/5 </span>
           <p className="Notation" hidden={prestation.etat !== "Prestation Terminée"}>
             Evaluer cette Prestation{" "}
           </p>
@@ -129,14 +116,11 @@ const CartePrestationPanier = ({ prestation }) => {
         {!prestationTerminee && (
           <button className="terminer" onClick={ValiderFinPrestation} hidden={prestation.etat != "En cours"}>Terminer cette Prestation</button>
         )}
-        {prestationTerminee && (
-          <button className="terminer">Prestation Terminée</button>
-        )}
         <div className='boutonsAccepterRefuser'>
           <button className='accepterService' onClick={consulterDevis} hidden={prestation.etat != "En attente d'acceptation du devis"} >
             Consulter le devis
           </button>
-         
+
         </div>
       </div>
     </div>

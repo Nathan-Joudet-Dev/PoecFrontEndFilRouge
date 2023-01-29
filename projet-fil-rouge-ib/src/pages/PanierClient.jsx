@@ -3,7 +3,8 @@ import HeaderSimple from "../components/HeaderSimple";
 import Panier from "../components/Panier";
 import CommandesClients from "../components/CommandesClients";
 import { useState } from "react";
-import Footer from "../components/footer";
+import Service from "../assets/ApiService";
+import { useEffect } from "react";
 
 const PanierClient = () => {
 
@@ -12,6 +13,26 @@ const PanierClient = () => {
 
   const [panierClassName, setPanierClassName] = useState("affichageSpanSelected");
   const [commandesClassName, setCommandesClassName] = useState("affichageSpan");
+
+  const [client, setClient] = useState({});
+  const _service = new Service();
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+
+    // Récupère le client actuellement connecté
+    async function fetchClient(id) {
+      const clientTmp = await _service.recupererUtilisateurById(id);
+
+      // Pour afficher directement l'onglet 'Mes commandes' si le panier est vide
+      if (clientTmp.panier.length == 0) {
+        affichageCommandes();
+      }
+
+      setClient(clientTmp);
+    }
+    fetchClient(+id);
+  }, [])
 
   /**
    * Affiche le panier du client
