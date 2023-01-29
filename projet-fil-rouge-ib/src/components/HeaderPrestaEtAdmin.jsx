@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { useNavigate, Link } from 'react-router-dom';
 import logo from "../data/images/logo.png";
 import '../styles/headerPrestaEtAdmin.css'
+import { BiLogOut } from 'react-icons/bi'
 
 const HeaderPrestaEtAdmin = ({ nom, arrow, boutonAjouter }) => {
 
@@ -10,6 +11,11 @@ const HeaderPrestaEtAdmin = ({ nom, arrow, boutonAjouter }) => {
 
     const retour = () => {
         _navigate(-1)
+    }
+
+    function logOut() {
+        localStorage.removeItem('id');
+        _navigate('/');
     }
 
     return (
@@ -20,6 +26,7 @@ const HeaderPrestaEtAdmin = ({ nom, arrow, boutonAjouter }) => {
                 <span className='texte'>{nom}</span>
             </div>
             {boutonAjouter && <Link to='/ajoutPrestation' className='boutonAjouterPresta'>Ajouter une prestation</Link>}
+            <BiLogOut className="logOutAdminEtPresta" onClick={logOut} />
         </div>
     );
 };

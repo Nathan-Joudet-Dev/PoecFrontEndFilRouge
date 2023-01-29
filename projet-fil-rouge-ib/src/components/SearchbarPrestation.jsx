@@ -7,6 +7,7 @@ import { SlBasket } from "react-icons/sl";
 import Service from "../assets/ApiService";
 import AffichagePrestations from '../components/AffichagePrestations';
 import { useNavigate } from "react-router-dom";
+import { BiLogOut } from 'react-icons/bi'
 
 const SearchbarPrestation = () => {
 
@@ -58,6 +59,11 @@ const SearchbarPrestation = () => {
     _navigate('/panierClient')
   }
 
+  function logOut() {
+    localStorage.removeItem('id');
+    _navigate('/')
+  }
+
   return (
     <>
       <div className="navbar">
@@ -81,6 +87,7 @@ const SearchbarPrestation = () => {
           <div className="basket">
             <SlBasket className="Basket" onClick={voirPanier} />
           </div>
+          <BiLogOut className="logOutSearchBar" onClick={logOut} />
         </div>
       </div>
       {inputRecherche == "" && (
