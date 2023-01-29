@@ -7,6 +7,7 @@ import Service from "../assets/ApiService";
 import '../styles/headerSimple.css'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom';
+import { BiLogOut } from 'react-icons/bi'
 
 const HeaderSimple = () => {
 
@@ -31,6 +32,11 @@ const HeaderSimple = () => {
     fetchClient(+id)
   }, [])
 
+  function logOut() {
+    localStorage.removeItem('id');
+    _navigate('/');
+  }
+
   return (
     <>
       <div className="navbarSimple">
@@ -45,6 +51,7 @@ const HeaderSimple = () => {
           <div className="basket">
             <SlBasket className="Basket" />
           </div>
+          <BiLogOut className="logOutAdminEtPresta" onClick={logOut} />
         </div>
       </div>
     </>

@@ -73,12 +73,17 @@ select {
 }
 
 
-.userName{
+.userName {
   font-size: 2em;
   font-weight: bold;
 }
 
 .basket {
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.logOutSearchBar {
   font-size: 3em;
   cursor: pointer;
 }
