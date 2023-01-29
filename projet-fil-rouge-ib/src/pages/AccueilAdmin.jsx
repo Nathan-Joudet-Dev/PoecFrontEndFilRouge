@@ -17,6 +17,9 @@ const AccueilAdmin = () => {
 
     const [prestataireRecherche, setPrestataireRecherche] = useState('');
 
+    const [classNamePrestaEnCours, setClassNamePrestaEnCours] = useState('btnNavbarAdmin');
+    const [classNamePrestaParPrestataire, setClassNamePrestaParPrestataire] = useState('btnNavbarAdminNonClique');
+
     const _service = new Service();
 
     useEffect(() => {
@@ -44,6 +47,8 @@ const AccueilAdmin = () => {
     function afficherEnCours() {
         setAfficherPrestationsEnCours(true);
         setAfficherPrestationsParPrestataire(false);
+        setClassNamePrestaEnCours('btnNavbarAdmin');
+        setClassNamePrestaParPrestataire('btnNavbarAdminNonClique');
     }
 
     /**
@@ -52,6 +57,8 @@ const AccueilAdmin = () => {
     function afficherParPrestataire() {
         setAfficherPrestationsEnCours(false);
         setAfficherPrestationsParPrestataire(true);
+        setClassNamePrestaEnCours('btnNavbarAdminNonClique');
+        setClassNamePrestaParPrestataire('btnNavbarAdmin');
     }
 
     const rechercherParPrestataire = (value) => {
@@ -60,10 +67,10 @@ const AccueilAdmin = () => {
 
     return (
         <>
-            <HeaderPrestaEtAdmin nom={`${admin.nom} - Administrateur`} arrow='arrowVisible' />
+            <HeaderPrestaEtAdmin nom={`Administrateur`} arrow='arrowVisible' />
             <div className='navbarAdmin' >
-                <button className='btnNavbarAdmin' onClick={afficherEnCours}>Prestations en cours/terminées</button>
-                <button className='btnNavbarAdmin' onClick={afficherParPrestataire}>Prestations par prestataires</button>
+                <button className={classNamePrestaEnCours} onClick={afficherEnCours}>Prestations en cours/terminées</button>
+                <button className={classNamePrestaParPrestataire} onClick={afficherParPrestataire}>Prestations par prestataires</button>
             </div>
             {afficherPrestationsEnCours && (
                 <div className='prestationsMap'>
