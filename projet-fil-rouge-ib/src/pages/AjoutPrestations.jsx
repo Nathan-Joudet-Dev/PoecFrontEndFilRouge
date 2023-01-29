@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Service from '../assets/ApiService';
 import HeaderPrestaEtAdmin from '../components/HeaderPrestaEtAdmin';
 import FormAjoutPrestations from '../components/FormAjoutPrestations';
-import Footer from '../components/footer';
 
 const AjoutPrestations = () => {
 

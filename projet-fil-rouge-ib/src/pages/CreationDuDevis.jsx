@@ -3,7 +3,6 @@ import HeaderPrestaEtAdmin from '../components/HeaderPrestaEtAdmin';
 import CreationDevis from '../components/CreationDevis';
 import Service from '../assets/ApiService';
 import { useEffect, useState } from 'react';
-import Footer from '../components/footer';
 
 const CreationDuDevis = () => {
 

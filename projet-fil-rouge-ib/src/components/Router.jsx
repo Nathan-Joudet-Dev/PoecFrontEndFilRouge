@@ -12,16 +12,6 @@ import AffichageDuDevis from '../pages/AffichageDuDevis';
 import NoterLaPrestation from '../pages/NoterLaPrestation';
 import AccueilAdmin from '../pages/AccueilAdmin';
 
-// nathan
-
-
-// corentin
-
-
-// benjamin
-
-
-//
 const Router = () => {
     return (
         <BrowserRouter>
@@ -37,10 +27,6 @@ const Router = () => {
                 <Route path='/prestataire' element={<AccueilPrestataire />} />
                 <Route path='/creationDevis' element={<CreationDuDevis />} />
                 <Route path='/admin' element={<AccueilAdmin />} />
-                <Route path='/nathan' element='#' />
-                <Route path='/corentin' element='#' />
-                <Route path='/benjamin' element='#' />
-
                 <Route path='/*' element='erreur 404' />
             </Routes>
         </BrowserRouter>
