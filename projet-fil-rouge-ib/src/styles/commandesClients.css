@@ -50,7 +50,20 @@
 
 .PrestationsCommandes {
     height: 70vh;
-    width: 98%;
+    width: 95%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 1%;
+}
+
+.headerPresta {
+    /* width: 95%; */
+    margin: 1% auto 0 auto;
+}
+
+.PrestationsPanier {
+    height: 70vh;
+    width: 105%;
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 1%;
