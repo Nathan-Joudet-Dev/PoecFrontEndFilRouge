@@ -47,7 +47,7 @@ const CartePrestation = ({ prestation, boutonSupprimer }) => {
             <div className='detailsEtPanier'>
                 {!boutonSupprimer && (
                     <>
-                        <button className='btnDetails'>Détails</button>
+                        <button className='btnDetails' hidden={true}>Détails</button>
                         <button className='btnAjouter' onClick={ajouterAuPanier}>Ajouter au panier</button>
                     </>
                 )}

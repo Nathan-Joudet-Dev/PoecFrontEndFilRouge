@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import Service from '../assets/ApiService'
 import '../styles/formulaireInscriptionDeux.css'
 import Prestataires from '../models/prestataires';
+import { useNavigate } from 'react-router-dom';
 
 const FormulaireInscriptionDeux = () => {
 
     const _service = new Service()
+    const _navigate = useNavigate();
 
     const [nomSociete, setNomSociete] = useState('')
     const [email, setEmail] = useState('')
@@ -35,6 +37,8 @@ const FormulaireInscriptionDeux = () => {
         localStorage.removeItem('nomSociete')
         localStorage.removeItem('email')
         localStorage.removeItem('motDePasse')
+        alert("Compte crée avec succès !")
+        _navigate("/");
     }
 
     return (

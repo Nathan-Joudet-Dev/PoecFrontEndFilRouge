@@ -23,7 +23,9 @@ const CreationDevis = ({ prestation }) => {
         const nouveauDevis = new Devis(detailMateriel, coutMateriel, tempsEstime, calculerCoutTotal())
 
         prestation.devis = nouveauDevis;
+        prestation.coutTotal = calculerCoutTotal();
         prestation.etat = "En attente d'acceptation du devis";
+        console.log(prestation.coutTotal);
 
         await _service.modifierPrestations(prestation.id, prestation);
 
