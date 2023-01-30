@@ -3,10 +3,13 @@ import '../styles/ajoutPrestations.css'
 import { useState, useEffect } from 'react';
 import Service from '../assets/ApiService';
 import Prestations from '../models/prestations';
+import { useNavigate } from 'react-router-dom';
 
 const FormAjoutPrestations = () => {
 
     const _service = new Service();
+
+    const _navigate = useNavigate();
 
     const [prestataire, setPrestataire] = useState({})
     const [titre, setTitre] = useState('')
@@ -31,6 +34,9 @@ const FormAjoutPrestations = () => {
         e.preventDefault();
         const nouvellePrestation = new Prestations(titre, description, tauxHoraire, prestataire.nomSociete, prestataire.logo, prestataire.domaine);
         await _service.creerPrestations(nouvellePrestation);
+        alert("Prestation ajoutée !")
+        _navigate(-1)
+
     }
 
     return (
@@ -47,7 +53,7 @@ const FormAjoutPrestations = () => {
                 <label className='labelAjoutPrestation' htmlFor="tauxHoraire">Taux horaire de la prestation</label>
                 <div className='divTauxHoraire'>
                     <div className='inputTaux'>
-                        <input className='inputTauxHoraire' type="text" name='tauxHoraire' onChange={e => setTauxHoraire(e.target.value)} />
+                        <input className='inputTauxHoraire' type="number" name='tauxHoraire' onChange={e => setTauxHoraire(e.target.value)} />
                     </div>
                     <div className='TauxHoraire'>€ / h</div>
                 </div>
