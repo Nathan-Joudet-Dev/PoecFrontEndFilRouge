@@ -1,0 +1,80 @@
+.formulaireInscription {
+  height: 73vh;
+  width: 75vw;
+  min-width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devenirPresta {
+  font-weight: bold;
+  font-size: 1.7em;
+  margin-top: 1%;
+  margin-bottom: -3%;
+}
+
+.formInscription {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4%;
+}
+
+.labelInscription {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-left: 7.5%;
+  text-align: left;
+}
+
+.labelSpan {
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.inputInscription {
+  border: 0.7px solid black;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  height: 6.5vh;
+  width: 85%;
+  margin: 0.5% auto 1% auto;
+  font-size: 1.2em;
+}
+
+.obligatoires {
+  text-align: left;
+  font-size: 0.9em;
+  margin-left: 4.2%;
+  margin-top: -1%;
+}
+
+.etoileObligatoire {
+  color: red;
+  font-weight: bold;
+}
+
+.boutonSuivant {
+  background-color: #0b71d9;
+  color: white;
+  height: 7vh;
+  width: 20%;
+  min-width: 100px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+  margin: 1% auto 4% auto;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .formulaireInscription {
+    height: 70vh;
+  }
+}

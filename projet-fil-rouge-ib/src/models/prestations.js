@@ -1,23 +1,29 @@
 export default class Prestations {
+
   // Attributs
+
   id = 0;
-  titre = "";
-  description = "";
-  tauxHoraires = 0;
-  coutTotal = 0;
-  etat = "";
-  validationPrestataire = false;
-  validationClient = false;
-  noteQualiteGlobale = 0;
-  noteCommunication = 0;
-  noteDossierTechnique = 0;
-  noteExpertise = 0;
-  noteMoyenne = 0;
-  client = "";
-  prestataire = "";
+  titre;
+  description;
+  tauxHoraires;
+  coutTotal;
+  etat;
+  validationPrestataire;
+  validationClient;
+  noteQualiteGlobale;
+  noteCommunication;
+  noteDossierTechnique;
+  noteExpertise;
+  noteMoyenne;
+  client;
+  prestataire;
+  image;
+  type;
+  devis;
 
   // Contructeur
-  constructor(titre, description, tauxHoraires, prestataire) {
+
+  constructor(titre, description, tauxHoraires, prestataire, image, type) {
     this.titre = titre;
     this.description = description;
     this.tauxHoraires = tauxHoraires;
@@ -32,5 +38,8 @@ export default class Prestations {
     this.noteMoyenne = 0;
     this.client = "";
     this.prestataire = prestataire;
+    this.image = image;
+    this.type = type;
+    this.devis = {};
   }
 }

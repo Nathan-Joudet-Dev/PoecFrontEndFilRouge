@@ -1,0 +1,97 @@
+.navbarSimple {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.253);
+  margin-bottom: 0%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.logo {
+  height: 7vh;
+  width: 20vw;
+  justify-self: flex-start;
+  margin-left: 4%;
+}
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+  font-size: 2em;
+  left: 1%;
+}
+
+.search {
+  background-color: #ffffff;
+  height: 100%;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.Entreprise {
+  background-color: #d9d9d9;
+  width: 18vw;
+  height: 4.9vh;
+  border: 1px solid black;
+  text-align: left;
+  font-size: 1em;
+}
+
+select {
+  background-color: #d9d9d9;
+  width: 18vw;
+  height: 54%;
+  font-size: 1.3em;
+}
+
+.headerBtn {
+  height: 5.4vh;
+  width: 10vw;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  font-size: 22px;
+  background-color: #0b71d9;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.Icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 20vw;
+}
+
+.circle {
+  display: flex;
+  align-self: center;
+  height: fit-content;
+  width: 12vw;
+  justify-content: left;
+  display: flex;
+  align-items: center;
+}
+
+.circle>p {
+  margin-left: 3%;
+}
+
+.userCircle {
+  font-size: 3.2em;
+  cursor: pointer;
+}
+
+.userName {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.basket {
+  font-size: 3em;
+  cursor: pointer;
+}

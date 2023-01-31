@@ -1,0 +1,86 @@
+.noterPrestation {
+    height: 70vh;
+    width: 70vw;
+    margin: 2% auto 0 auto;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.titreEvaluerPrestation {
+    color: #0b71d9;
+    margin-bottom: 4%;
+}
+
+.divQualiteGlobale,
+.divCommunication,
+.divDossierTechnique,
+.divExpertise {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.labelNotation {
+    font-weight: bold;
+    font-size: 1.9em;
+    margin-left: 3%;
+    margin-right: 10%;
+    width: 50%;
+    text-align: left;
+}
+
+.inputNotation {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin-right: 2%;
+
+    color: black;
+    background-color: black;
+}
+
+input[type="radio"]:checked {
+    background-color: black;
+    color: black;
+}
+
+.boutonsNotation {
+    margin-top: 5%;
+}
+
+.boutonRetour {
+    cursor: pointer;
+    background-color: #E2183B;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1.7em;
+    border-radius: 10px;
+    padding: 0.8% 1.7%;
+    margin-right: 4%;
+}
+
+.boutonValider {
+    cursor: pointer;
+    background-color: #007AAF;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1.9em;
+    border-radius: 10px;
+    padding: 0.7% 1.7%;
+}
+
+.notes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -1%;
+    margin-left: 51%;
+}
+
+.notes>p {
+    font-size: 1.4em;
+    margin-right: 7.5%;
+}

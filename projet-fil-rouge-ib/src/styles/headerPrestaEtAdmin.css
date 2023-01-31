@@ -1,0 +1,14 @@
+.logoHeader {
+    position: absolute;
+    left: 2%;
+}
+
+.boutonAjouterPresta {
+    margin-right: 5%;
+}
+
+.logOutAdminEtPresta {
+    font-size: 3em;
+    cursor: pointer;
+    margin-right: 2%;
+}
